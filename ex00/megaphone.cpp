@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+ /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
@@ -6,21 +6,29 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 22:40:25 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/10 22:55:39 by rteles           ###   ########.fr       */
+/*   Updated: 2023/01/10 23:37:08 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cctype>
 
-int main(void)
+int main(int argc, char **argv)
 {
-    char word[512];    
-    
-    std::cout << "Hello World!" << std::endl;
+	int	j;
 
-    std::cout << "Input a word: ";
-    std::cin >> word;
-    std::cout << "Tou entered: [" << word << "]" << std::endl;
+	if (argc == 1)
+	{
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		return (0);
+	}
 
-    return 0;
-}x\
+	for (int i = 1; i < argc + 1; i++)
+	{
+		j = -1;
+		while (argv[i][++j])
+			std::cout << (char)toupper(argv[i][j]);
+	}
+	std::cout << std::endl;
+	return (0);
+}
