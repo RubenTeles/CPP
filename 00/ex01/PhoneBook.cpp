@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 21:36:00 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/16 23:58:49 by rteles           ###   ########.fr       */
+/*   Updated: 2023/01/17 22:10:47 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ PhoneBook::PhoneBook( void ) {
         contacts[i] = Contact();
     }
     
-    std::cout << "constructor called" << std::endl;
+    std::cout << "Constructor called" << std::endl;
     return ;
 }
 

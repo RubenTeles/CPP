@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 14:45:44 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/17 21:53:14 by rteles           ###   ########.fr       */
+/*   Created: 2023/01/17 22:27:48 by rteles            #+#    #+#             */
+/*   Updated: 2023/01/17 22:52:49 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-int main(void)
+Weapon::Weapon()
 {
-    Zombie  *zombies;
-    
-    zombies = zombieHorde( 10, "Albert the Zombie");
-    
-    if (zombies == NULL)
-        return (1);
+}
 
-    for (int i = 0; i < 10; i++)
-        zombies[i].announce();
+Weapon::Weapon(std::string type) : type(type)
+{
+}
 
-    delete[] zombies;
-    return (0);
+Weapon::~Weapon()
+{
+}
+
+
+std::string Weapon::getType(void) const
+{
+    return this->type;
+}
+
+void    Weapon::setType(std::string newType)
+{
+    this->type = newType;
+
+    return ;
 }

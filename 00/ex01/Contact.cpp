@@ -6,15 +6,13 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 21:36:00 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/16 23:58:42 by rteles           ###   ########.fr       */
+/*   Updated: 2023/01/17 22:18:38 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string.h>
 #include "Contact.hpp"
-#include <cstdlib>
-#include <cstdio>
+#include <sstream>
 
 
 Contact::Contact(void)
@@ -56,10 +54,11 @@ void	ft_word(std::string str)
 	n = str.length();
 	if (n > 10)
 	{
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 9; i++)
 		{
 			std::cout << str[i];
 		}
+		std::cout << ".";
 	}
 	else
 	{
@@ -74,10 +73,10 @@ void	ft_word(std::string str)
 
 void	Contact::getAttribut(void) const
 {
-	char	num_string[32];
-	
 	std::cout << "|";
-	sprintf(num_string, "%d", this->index);
+    std::ostringstream s;
+    s << this->index;
+    const std::string num_string(s.str());
 	ft_word(num_string);
 	ft_word(this->firstName); 
 	ft_word(this->lastName);
@@ -91,8 +90,10 @@ int	Contact::searchAttribut(std::string str)
 {
 	if (str.find_first_not_of("0123456789") == std::string::npos)
 	{
-		const char* num_char = str.c_str();
-		if (std::atoi(num_char) == this->index)
+    	std::ostringstream s;
+    	s << this->index;
+    	const std::string num_string(s.str());
+		if (str == num_string)
 		{
 			this->getAttribut();
 			return (0);
