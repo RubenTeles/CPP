@@ -6,11 +6,11 @@
 #    By: rteles <rteles@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 23:05:44 by rteles            #+#    #+#              #
-#    Updated: 2023/01/17 13:27:47 by rteles           ###   ########.fr        #
+#    Updated: 2023/01/17 16:28:31 by rteles           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= BraiiiiiiinnnzzzZ
+NAME			= zombie
 
 SRCS			= ./main.cpp ./Zombie.cpp ./newZombie.cpp ./randomChump.cpp
 

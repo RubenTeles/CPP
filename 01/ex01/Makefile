@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rteles <rteles@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/10 23:05:44 by rteles            #+#    #+#              #
-#    Updated: 2023/01/17 15:51:48 by rteles           ###   ########.fr        #
+#    Created: 2023/01/17 16:26:55 by rteles            #+#    #+#              #
+#    Updated: 2023/01/17 16:28:23 by rteles           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= zombie
+NAME			= zombies
 
 SRCS			= ./main.cpp ./Zombie.cpp ./zombieHorde.cpp
 

@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:45:44 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/17 16:23:25 by rteles           ###   ########.fr       */
+/*   Updated: 2023/01/17 16:31:57 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int main(void)
 
     for (int i = 0; i < 10; i++)
         zombies[i].announce();
-    delete[] zombies;
-    
+
+    delete[] zombies;    
 
     return (0);
 }
