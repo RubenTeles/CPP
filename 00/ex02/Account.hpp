@@ -45,7 +45,6 @@ private:
 	static int	_totalNbDeposits;
 	static int	_totalNbWithdrawals;
 
-	//TODO
 	static void	_displayTimestamp( void );
 
 	int				_accountIndex;
@@ -53,7 +52,6 @@ private:
 	int				_nbDeposits;
 	int				_nbWithdrawals;
 
-	//TODO
 	Account( void );
 
 };
