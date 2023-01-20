@@ -6,13 +6,13 @@
 #    By: rteles <rteles@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 23:05:44 by rteles            #+#    #+#              #
-#    Updated: 2023/01/20 16:54:12 by rteles           ###   ########.fr        #
+#    Updated: 2023/01/20 16:54:16 by rteles           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= brain
+NAME			= replace
 
-SRCS			= ./main.cpp ./Weapon.cpp ./HumanA.cpp ./HumanB.cpp
+SRCS			= ./main.cpp 
 
 SRCS_OBJS		= $(SRCS:.cpp=.o)
 

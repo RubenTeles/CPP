@@ -6,29 +6,53 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:45:44 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/20 16:30:45 by rteles           ###   ########.fr       */
+/*   Updated: 2023/01/20 17:21:19 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "HumanB.hpp"
+#include <fstream>
 
-int main()
+void	writeFile(std::string text, std::string file, std::string s1, std::string s2)
 {
+	(void)text;
+	(void)file;
+	(void)s1;
+	(void)s2;
+	//TODO
+}
+
+int main(int argc, char **argv)
+{
+	std::ifstream	myfile;
+	std::string 	text;
+	std::string		line;
+	
+	if (argc != 4)
 	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
+		std::cerr << "Error!" << std::endl;
+		return (1);
 	}
+	
+	myfile.open(argv[1]);
+	
+	if (myfile.fail())
 	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
+		std::cerr << "Error Opening File" << std::endl;
+		return (1);
 	}
-	return 0;
+	
+	if (myfile.is_open())
+	{
+		while (getline(myfile, line))
+		{
+			text += line + "\n";
+		}
+		myfile.close();
+	}
+	//writeFile(text, argv[1], argv[2], argv[3]);
+	
+	std::cout << text << std::endl;
+	
+	return (0);
 }
