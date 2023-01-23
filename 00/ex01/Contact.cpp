@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 21:36:00 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/17 22:18:38 by rteles           ###   ########.fr       */
+/*   Updated: 2023/01/23 14:04:08 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,17 @@ int	Contact::searchAttribut(std::string str)
     	const std::string num_string(s.str());
 		if (str == num_string)
 		{
-			this->getAttribut();
-			return (0);
+			std::cout << std::endl << "Index: " << this->index << std::endl <<
+			"First Name: " << this->firstName << std::endl <<
+			"Last Name: " << this->lastName << std::endl <<
+			"Nickname: " << this->nickname << std::endl <<
+			"Phone Number: " << this->phoneNumber << std::endl <<
+			"Darkest Secret: " << this->darkestSecret << std::endl << std::endl;
+			
+			return (1);
 		}	
 	}
-	if (str == this->firstName || str == this->lastName || str == this->nickname)
-		this->getAttribut();
+	/*if (str == this->firstName || str == this->lastName || str == this->nickname)
+		this->getAttribut();*/
 	return (0);
 }

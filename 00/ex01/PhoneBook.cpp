@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 21:36:00 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/17 22:10:47 by rteles           ###   ########.fr       */
+/*   Updated: 2023/01/23 13:59:03 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 
 PhoneBook::PhoneBook( void ) {
 
-    PhoneBook::total = 0;
-    for (int i = 0; i < 8; i++) {
-        contacts[i] = Contact();
-    }
-    
     std::cout << "Constructor called" << std::endl;
     return ;
 }
@@ -50,10 +45,16 @@ int PhoneBook::addContact(std::string firstName, std::string lastName, std::stri
 
 int PhoneBook::searchContact(std::string str)
 {
+    int is_find;
+
+    is_find = 0;
     for (int i = 0; i < PhoneBook::total; i++)
     {
-        this->contacts[i].searchAttribut(str);
+        is_find = this->contacts[i].searchAttribut(str);
+        if (is_find == 1)
+            return (1);
     }
+    std::cout << "Nao existe esse Index!" << std::endl;
     return (0);
 }
 
