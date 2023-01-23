@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 21:36:00 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/23 13:59:03 by rteles           ###   ########.fr       */
+/*   Updated: 2023/01/23 14:18:00 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int PhoneBook::searchContact(std::string str)
         if (is_find == 1)
             return (1);
     }
-    std::cout << "Nao existe esse Index!" << std::endl;
+    std::cout << "This Index is out of range!" << std::endl;
     return (0);
 }
 

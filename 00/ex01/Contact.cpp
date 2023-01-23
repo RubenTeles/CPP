@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 21:36:00 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/23 14:04:08 by rteles           ###   ########.fr       */
+/*   Updated: 2023/01/23 14:16:56 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,5 @@ int	Contact::searchAttribut(std::string str)
 			return (1);
 		}	
 	}
-	/*if (str == this->firstName || str == this->lastName || str == this->nickname)
-		this->getAttribut();*/
 	return (0);
 }
