@@ -6,13 +6,13 @@
 #    By: rteles <rteles@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 16:26:55 by rteles            #+#    #+#              #
-#    Updated: 2023/01/17 16:28:23 by rteles           ###   ########.fr        #
+#    Updated: 2023/01/24 12:31:47 by rteles           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= zombies
+NAME			= harl
 
-SRCS			= ./main.cpp ./Zombie.cpp ./zombieHorde.cpp
+SRCS			= ./main.cpp ./Harl.cpp 
 
 SRCS_OBJS		= $(SRCS:.cpp=.o)
 

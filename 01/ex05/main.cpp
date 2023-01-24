@@ -6,24 +6,21 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:45:44 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/17 21:53:14 by rteles           ###   ########.fr       */
+/*   Updated: 2023/01/24 12:30:54 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Harl.hpp"
 
 int main(void)
 {
-    Zombie  *zombies;
-    
-    zombies = zombieHorde( 10, "Albert the Zombie");
-    
-    if (zombies == NULL)
-        return (1);
+    Harl *harl = new Harl();
 
-    for (int i = 0; i < 10; i++)
-        zombies[i].announce();
+    harl->complain("warning");
+    harl->complain("debug");
+    harl->complain("error");
+    harl->complain("info");
+    harl->complain("random");
 
-    delete[] zombies;
-    return (0);
+    delete harl;
 }
