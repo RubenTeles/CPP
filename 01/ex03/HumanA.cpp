@@ -6,13 +6,13 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 22:27:48 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/20 16:29:59 by rteles           ###   ########.fr       */
+/*   Updated: 2023/01/24 16:06:32 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon wp) : name(name), wp(wp)
+HumanA::HumanA(std::string name, Weapon &wp) : name(name), wp(wp)
 {
 }
 
