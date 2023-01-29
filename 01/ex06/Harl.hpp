@@ -10,6 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef HARL_H
+# define HARL_H
+
 #include <iostream>
 #include <string.h>
 
@@ -30,3 +33,5 @@ class Harl
         void complain( std::string level );
         
 };
+
+#endif

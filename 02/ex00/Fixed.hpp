@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 22:27:42 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/29 21:31:56 by rteles           ###   ########.fr       */
+/*   Created: 2023/01/29 18:46:33 by rteles            #+#    #+#             */
+/*   Updated: 2023/01/29 21:30:24 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_H
-# define WEAPON_H
+#ifndef FIXED_H
+# define FIXED_H
 
 #include <iostream>
 
-class Weapon
+class Fixed
 {
     private:
-        std::string type;
+        int					rawBits;
+		static const int	factionalBit = 8;
+    
     public:
-        Weapon();
-        Weapon(std::string type);
-        ~Weapon();
-        std::string getType(void) const;
-        void setType(std::string newType);
+        Fixed(void);
+        Fixed( Fixed const & src);
+        ~Fixed(void);
+        
+        Fixed & operator=(Fixed const & rhs);
+
+        int getRawBits(void) const;
+        void setRawBits(int const raw);
 };
 
 #endif

@@ -6,9 +6,12 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 22:27:42 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/24 16:04:40 by rteles           ###   ########.fr       */
+/*   Updated: 2023/01/29 21:30:55 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef HUMAN_A_H
+# define HUMAN_A_H
 
 #include <iostream>
 #include "Weapon.hpp"
@@ -24,3 +27,5 @@ class HumanA
         
         void    attack(void); 
 };
+
+#endif
