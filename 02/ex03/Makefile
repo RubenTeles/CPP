@@ -6,13 +6,13 @@
 #    By: rteles <rteles@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 23:05:44 by rteles            #+#    #+#              #
-#    Updated: 2023/01/29 23:55:27 by rteles           ###   ########.fr        #
+#    Updated: 2023/01/30 16:49:27 by rteles           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= fixedInt
+NAME			= BSP
 
-SRCS			= ./main.cpp ./Fixed.cpp
+SRCS			= ./main.cpp ./Fixed.cpp ./Point.cpp ./bsp.cpp
 
 SRCS_OBJS		= $(SRCS:.cpp=.o)
 
