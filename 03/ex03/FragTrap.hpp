@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 22:18:55 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/31 11:46:10 by rteles           ###   ########.fr       */
+/*   Updated: 2023/01/31 16:31:25 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
     public:
         FragTrap(void);

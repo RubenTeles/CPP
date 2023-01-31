@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 22:17:42 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/31 11:45:33 by rteles           ###   ########.fr       */
+/*   Updated: 2023/01/31 17:54:12 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 ScavTrap::ScavTrap(void): ClapTrap()
 {
-    this->setAttributes("", 100, 50, 20);
-    std::cout << "ScavTrap " << this->getName() << " default summoned!" << std::endl;
+    this->_hitPoints = 100;
+    this->_energyPoints = 50;
+    this->_atackDamage = 20;
+    
+    std::cout << "ScavTrap default summoned!" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)

@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 22:17:42 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/31 11:53:27 by rteles           ###   ########.fr       */
+/*   Updated: 2023/01/31 17:53:59 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 FragTrap::FragTrap(void): ClapTrap()
 {
-    this->setAttributes("", 100, 100, 30);
-    std::cout << "FragTrap " << this->getName() << " default summoned!" << std::endl;
+    this->_hitPoints = 100;
+    this->_energyPoints = 100;
+    this->_atackDamage = 30;
+    
+    std::cout << "FragTrap default summoned!" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name): ClapTrap(name)
