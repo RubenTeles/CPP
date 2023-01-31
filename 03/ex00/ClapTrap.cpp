@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 22:17:42 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/30 23:17:58 by rteles           ###   ########.fr       */
+/*   Updated: 2023/01/31 00:12:56 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 ClapTrap::ClapTrap(void) :  name(""), hitPoints(10), energyPoints(10), atackDamage(0)
 {
-    std::cout << "ClapTrap " << this->name << " was summoned! " << std::endl;
+    std::cout << "ClapTrap " << this->name << " was summoned!" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), atackDamage(0) 
 {
-    std::cout << "ClapTrap " << this->name << " was summoned! " << std::endl;
+    std::cout << "ClapTrap " << this->name << " was summoned!" << std::endl;
 }
 
 ClapTrap::ClapTrap( ClapTrap const & src)
@@ -28,7 +28,7 @@ ClapTrap::ClapTrap( ClapTrap const & src)
 }
 
 ClapTrap::~ClapTrap() {
-    std::cout << "ClapTrap " << this->name << " was killed! " << std::endl;
+    std::cout << "ClapTrap " << this->name << " was killed!" << std::endl;
 }
 
 ClapTrap & ClapTrap::operator=(ClapTrap const & rhs)

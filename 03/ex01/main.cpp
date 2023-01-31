@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 22:16:56 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/30 23:55:48 by rteles           ###   ########.fr       */
+/*   Updated: 2023/01/31 11:49:49 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 int main(void)
 {
     ClapTrap player1("Gustavo");
-    ScavTrap player2("Super_Robot");
+    ScavTrap player2("Super_FelisBerto");
 
     std::cout << std::endl << "Turn 1:" << std::endl << std::endl;
     player1.attack(player2.getName());
-    player2.takeDamage(0);
+    player2.takeDamage(player1.getAtackDamage());
     player2.guardGate();
 
     std::cout << std::endl << "Turn 2:" << std::endl << std::endl;
     player1.attack(player2.getName());
-    player2.takeDamage(0);
+    player2.takeDamage(player1.getAtackDamage());
     player2.attack(player1.getName());
-    player1.takeDamage(20);
+    player1.takeDamage(player2.getAtackDamage());
 
     player1.beRepaired(4);
 

@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 22:17:42 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/31 11:45:36 by rteles           ###   ########.fr       */
+/*   Updated: 2023/01/31 11:53:27 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-ScavTrap::ScavTrap(void): ClapTrap()
+FragTrap::FragTrap(void): ClapTrap()
 {
-    this->setAttributes("", 100, 50, 20);
-    std::cout << "ScavTrap " << this->getName() << " default summoned!" << std::endl;
+    this->setAttributes("", 100, 100, 30);
+    std::cout << "FragTrap " << this->getName() << " default summoned!" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name): ClapTrap(name)
+FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
-    this->setAttributes(name, 100, 50, 20);
-    std::cout << "ScavTrap " << this->getName() << " was summoned!" << std::endl;
+    this->setAttributes(name, 100, 100, 30);
+    std::cout << "FragTrap " << this->getName() << " was summoned!" << std::endl;
 }
 
-ScavTrap::ScavTrap( ScavTrap const & src): ClapTrap(src)
+FragTrap::FragTrap( FragTrap const & src): ClapTrap(src)
 {
     *this = src;
 }
 
-ScavTrap::~ScavTrap() {
-    std::cout << "ScavTrap " << this->getName() << " was killed!" << std::endl;
+FragTrap::~FragTrap() {
+    std::cout << "FragTrap " << this->getName() << " was killed!" << std::endl;
 }
 
-ScavTrap & ScavTrap::operator=(ScavTrap const & rhs)
+FragTrap & FragTrap::operator=(FragTrap const & rhs)
 {
     if (this != &rhs)
     {
@@ -43,7 +43,7 @@ ScavTrap & ScavTrap::operator=(ScavTrap const & rhs)
     return *this;
 }
 
-void ScavTrap::guardGate(void)
+void FragTrap::highFivesGuys(void)
 {
-    std::cout << "ScavTrap " << this->getName() << " is now in Gate keeper mode." << std::endl;
+    std::cout << "FragTrap " << this->getName() << " use a positive high fives request!" << std::endl;
 }
