@@ -6,7 +6,7 @@
 #    By: rteles <rteles@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 23:05:44 by rteles            #+#    #+#              #
-#    Updated: 2023/02/02 17:06:11 by rteles           ###   ########.fr        #
+#    Updated: 2023/02/02 22:21:55 by rteles           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,17 +16,17 @@ SRCS			= ./main.cpp ./Fixed.cpp ./Point.cpp ./bsp.cpp
 
 SRCS_OBJS		= $(SRCS:.cpp=.o)
 
-CPP				= c++
-FLAGS			= -Wall -Wextra -Werror -std=c++98
+CXX				= c++
+XXFLAGS			= -Wall -Wextra -Werror -std=c++98
 RM				= rm -f
 
 %.o: %.cpp
-	$(CPP) $(FLAGS) -c $< -o $@
+	$(CXX) $(XXFLAGS) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(SRCS_OBJS)
-	$(CPP) $(FLAGS) $(SRCS_OBJS) -o $(NAME)
+	$(CXX) $(XXFLAGS) $(SRCS_OBJS) -o $(NAME)
 
 clean:
 	$(RM) $(SRCS_OBJS)
