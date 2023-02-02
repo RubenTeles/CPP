@@ -6,7 +6,7 @@
 #    By: rteles <rteles@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/30 22:17:01 by rteles            #+#    #+#              #
-#    Updated: 2023/01/31 17:30:25 by rteles           ###   ########.fr        #
+#    Updated: 2023/02/02 17:12:30 by rteles           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS			= ./main.cpp ./ClapTrap.cpp ./ScavTrap.cpp
 
 SRCS_OBJS		= $(SRCS:.cpp=.o)
 
-CPP				= g++
+CPP				= c++
 FLAGS			= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 RM				= rm -f
 
