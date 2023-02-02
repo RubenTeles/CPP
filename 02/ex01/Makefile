@@ -6,7 +6,7 @@
 #    By: rteles <rteles@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 23:05:44 by rteles            #+#    #+#              #
-#    Updated: 2023/01/29 23:55:31 by rteles           ###   ########.fr        #
+#    Updated: 2023/02/02 17:06:21 by rteles           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS			= ./main.cpp ./Fixed.cpp
 
 SRCS_OBJS		= $(SRCS:.cpp=.o)
 
-CPP				= g++
+CPP				= c++
 FLAGS			= -Wall -Wextra -Werror -std=c++98
 RM				= rm -f
 
