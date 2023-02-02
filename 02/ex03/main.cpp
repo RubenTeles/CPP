@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 18:46:10 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/30 16:52:56 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/02 16:45:09 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int main( void ) 
 {
     Point a(0, 0);
-    Point b(3, 0);
-    Point c(1, 4);
-    Point point1(1, 2);
-    Point point2(5, 5);
+    Point b(2, 2);
+    Point c(3, 0);
+    Point point1(2, 1);
+    Point point2(5, 3);
     Point point3(0, 0);
 
     if (bsp(a, b, c, point1))
