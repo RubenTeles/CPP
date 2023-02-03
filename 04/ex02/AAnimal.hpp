@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   AAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 13:12:32 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/03 23:02:34 by rteles           ###   ########.fr       */
+/*   Created: 2023/02/02 23:27:24 by rteles            #+#    #+#             */
+/*   Updated: 2023/02/03 23:36:30 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_H
-# define CAT_H
+#ifndef AANIMAL_H
+# define AANIMAL_H
 
-#include "Animal.hpp"
+#include <iostream>
 #include "Brain.hpp"
 
-class Cat : virtual public Animal
+class AAnimal
 {
-    private:
-        Brain*      brain;
-
+    protected:
+        std::string _type;
+    
     public:
-        Cat(void);
-        Cat( Cat const & src);
-        virtual ~Cat(void);
+        AAnimal(void);
+        AAnimal(std::string _type);
+        AAnimal( AAnimal const & src);
+        virtual ~AAnimal(void);
 
-        Cat & operator=(Cat const & rhs);
+        AAnimal & operator=(AAnimal const & rhs);
         
-        virtual void makeSound(void) const;
-        
-        std::string getIdea(int index) const;
-        void    setIdea(int index, std::string idea);
+        virtual void makeSound(void) const = 0;
+        std::string getType(void) const;
+
 };
 
 #endif

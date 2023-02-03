@@ -1,48 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:41:18 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/03 13:42:19 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/03 23:36:24 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#include "AAnimal.hpp"
 
-Brain::Brain(void)
+AAnimal::AAnimal(void)
 {
-    std::cout << "Brain default Constructor!" << std::endl;
+    std::cout << "Animal default Constructor!" << std::endl;
 }
 
-Brain::Brain( Brain const & src)
+AAnimal::AAnimal(std::string type) : _type(type)
+{
+    std::cout << "Animal Constructor!" << std::endl;
+
+}
+
+AAnimal::AAnimal( AAnimal const & src)
 {
     *this = src;
 }
 
-Brain::~Brain() {
-    std::cout << "Brain Destructor!" << std::endl;
+AAnimal::~AAnimal() {
+    std::cout << "Animal Destructor!" << std::endl;
 }
 
-Brain & Brain::operator=(Brain const & rhs)
+AAnimal & AAnimal::operator=(AAnimal const & rhs)
 {
     if (this != &rhs)
     {
-        for (int i = 0; i < 100; i++)
-            this->ideas[i] = rhs.getIdea(i);
+        this->_type = rhs._type;
     }
-    
+
     return *this;
 }
-
-std::string Brain::getIdea(int index) const
+        
+std::string AAnimal::getType(void) const
 {
-    return this->ideas[index];
-}
-
-void Brain::setIdea(int index, std::string idea)
-{
-    this->ideas[index] = idea;
+    return this->_type;
 }

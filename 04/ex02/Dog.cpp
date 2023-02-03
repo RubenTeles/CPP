@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                       :+:      :+:    :+:   */
+/*   Dog.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,30 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Dog.hpp"
 
-Cat::Cat(void): Animal("Cat")
+Dog::Dog(void): AAnimal("Dog")
 {
     this->brain = new Brain();
 
-    std::cout << "Cat Constructor!" << std::endl;
+    std::cout << "Dog Constructor!" << std::endl;
 }
 
-Cat::Cat( Cat const & src): Animal(src)
+Dog::Dog( Dog const & src): AAnimal(src)
 {
     this->brain = new Brain();
-
-    std::cout << "Cat Clonned!" << std::endl;
     
+    std::cout << "Dog Clonned!" << std::endl;
+
     *this = src;
 }
 
-Cat::~Cat() {
+Dog::~Dog() {
+
     delete this->brain;
-    std::cout << "Cat Destructor!" << std::endl;
+
+    std::cout << "Dog Destructor!" << std::endl;
 }
 
-Cat & Cat::operator=(Cat const & rhs)
+Dog & Dog::operator=(Dog const & rhs)
 {
     if (this != &rhs)
     {
@@ -41,21 +43,21 @@ Cat & Cat::operator=(Cat const & rhs)
         for (int i = 0; i < 100; i++)
             this->brain->setIdea(i, rhs.brain->getIdea(i));
     }
-
+    
     return *this;
 }
 
-void Cat::makeSound(void) const
+void Dog::makeSound(void) const
 {
-    std::cout << "Miau!" << std::endl;
+    std::cout << "Au au!" << std::endl;
 }
 
-std::string Cat::getIdea(int index) const
+std::string Dog::getIdea(int index) const
 {
     return this->brain->getIdea(index);
 }
 
-void Cat::setIdea(int index, std::string idea)
+void Dog::setIdea(int index, std::string idea)
 {
     this->brain->setIdea(index, idea);
 }

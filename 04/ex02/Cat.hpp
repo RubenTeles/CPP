@@ -6,17 +6,17 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 13:12:32 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/03 23:02:34 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/03 23:41:36 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_H
 # define CAT_H
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Cat : virtual public Animal
+class Cat : virtual public AAnimal
 {
     private:
         Brain*      brain;

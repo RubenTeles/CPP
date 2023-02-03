@@ -6,13 +6,13 @@
 #    By: rteles <rteles@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 23:25:53 by rteles            #+#    #+#              #
-#    Updated: 2023/02/03 23:34:03 by rteles           ###   ########.fr        #
+#    Updated: 2023/02/03 23:46:46 by rteles           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= Animal
+NAME			= Interface
 
-SRCS			= ./main.cpp ./Animal.cpp ./Dog.cpp ./Cat.cpp ./WrongAnimal.cpp  ./WrongCat.cpp
+SRCS			= ./main.cpp ./AMateria.cpp ./ICharacter.cpp ./IMateriaSource.cpp
 
 SRCS_OBJS		= $(SRCS:.cpp=.o)
 

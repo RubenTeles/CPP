@@ -5,27 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/29 18:46:10 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/03 16:41:31 by rteles           ###   ########.fr       */
+/*   Created: 2023/02/03 23:46:08 by rteles            #+#    #+#             */
+/*   Updated: 2023/02/03 23:46:32 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+int main()
+{
+    IMateriaSource* src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
+    
+    ICharacter* me = new Character("me");
+    AMateria* tmp;
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
 
-int main( void ) {
+    ICharacter* bob = new Character("bob");
     
-    Fixed a;
-    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+    me->use(0, *bob);
+    me->use(1, *bob);
     
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
+    delete bob;
+    delete me;
+    delete src;
     
-    std::cout << b << std::endl;
-    
-    std::cout << Fixed::max( a, b ) << std::endl;
-
     return 0;
 }

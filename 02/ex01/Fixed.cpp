@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 18:46:51 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/29 21:28:44 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/03 16:38:40 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void Fixed::setRawBits(int const raw)
 
 float Fixed::toFloat(void) const
 {   
-    return ((float) this->rawBits) / (1 << this->factionalBit);;   
+    return ((float) this->rawBits) / (1 << this->factionalBit);
 }
 
 int Fixed::toInt(void) const

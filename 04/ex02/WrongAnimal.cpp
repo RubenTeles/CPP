@@ -1,48 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:41:18 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/03 13:42:19 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/03 13:46:17 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#include "WrongAnimal.hpp"
 
-Brain::Brain(void)
+WrongAnimal::WrongAnimal(void)
 {
-    std::cout << "Brain default Constructor!" << std::endl;
+    std::cout << "WrongAnimal default Constructor!" << std::endl;
 }
 
-Brain::Brain( Brain const & src)
+WrongAnimal::WrongAnimal(std::string type) : _type(type)
+{
+    std::cout << "WrongAnimal Constructor!" << std::endl;
+}
+
+WrongAnimal::WrongAnimal( WrongAnimal const & src)
 {
     *this = src;
 }
 
-Brain::~Brain() {
-    std::cout << "Brain Destructor!" << std::endl;
+WrongAnimal::~WrongAnimal() {
+    std::cout << "WrongAnimal Destructor!" << std::endl;
 }
 
-Brain & Brain::operator=(Brain const & rhs)
+WrongAnimal & WrongAnimal::operator=(WrongAnimal const & rhs)
 {
     if (this != &rhs)
     {
-        for (int i = 0; i < 100; i++)
-            this->ideas[i] = rhs.getIdea(i);
+        this->_type = rhs._type;
     }
-    
+
     return *this;
 }
 
-std::string Brain::getIdea(int index) const
+std::string WrongAnimal::getType(void) const
 {
-    return this->ideas[index];
+    return this->_type;
 }
 
-void Brain::setIdea(int index, std::string idea)
+void WrongAnimal::makeSound(void) const
 {
-    this->ideas[index] = idea;
+    std::cout << "WrongAnimal sound" << std::endl;
 }
