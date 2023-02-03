@@ -6,13 +6,13 @@
 #    By: rteles <rteles@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 23:25:53 by rteles            #+#    #+#              #
-#    Updated: 2023/02/02 23:47:05 by rteles           ###   ########.fr        #
+#    Updated: 2023/02/03 13:49:54 by rteles           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= Animal
 
-SRCS			= ./main.cpp ./Animal.cpp ./Dog.cpp ./Cat.cpp
+SRCS			= ./main.cpp ./Animal.cpp ./Dog.cpp ./Cat.cpp ./WrongAnimal.cpp  ./WrongCat.cpp
 
 SRCS_OBJS		= $(SRCS:.cpp=.o)
 

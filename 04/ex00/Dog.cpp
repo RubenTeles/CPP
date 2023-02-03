@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 12:41:18 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/03 13:42:19 by rteles           ###   ########.fr       */
+/*   Created: 2023/01/30 22:17:42 by rteles            #+#    #+#             */
+/*   Updated: 2023/01/31 17:53:59 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Dog.hpp"
 
-Animal::Animal(void)
+Dog::Dog(void): Animal("Dog")
 {
-    std::cout << "Animal default Constructor!" << std::endl;
+    std::cout << "Dog Constructor!" << std::endl;
 }
 
-Animal::Animal(std::string type) : _type(type)
-{
-    std::cout << "Animal Constructor!" << std::endl;
-
-}
-
-Animal::Animal( Animal const & src)
+Dog::Dog( Dog const & src): Animal(src)
 {
     *this = src;
 }
 
-Animal::~Animal() {
-    std::cout << "Animal Destructor!" << std::endl;
+Dog::~Dog() {
+    std::cout << "Dog Destructor!" << std::endl;
 }
 
-Animal & Animal::operator=(Animal const & rhs)
+Dog & Dog::operator=(Dog const & rhs)
 {
     if (this != &rhs)
     {
@@ -41,13 +35,8 @@ Animal & Animal::operator=(Animal const & rhs)
 
     return *this;
 }
-        
-std::string Animal::getType(void) const
-{
-    return this->_type;
-}
 
-void Animal::makeSound(void) const
+void Dog::makeSound(void) const
 {
-    std::cout << "Animal sound" << std::endl;
+    std::cout << "Au au!" << std::endl;
 }
