@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 00:22:15 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/04 15:25:05 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/04 15:56:45 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ class Character : public ICharacter
     public:
         Character(std::string name);
         Character( Character const & src);
-        virtual ~Character(void);
+        ~Character(void);
+
+        Character & operator=(Character const & rhs);
         
         virtual std::string const & getName() const;
         virtual void equip(AMateria* m);

@@ -6,13 +6,19 @@
 #    By: rteles <rteles@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 23:25:53 by rteles            #+#    #+#              #
-#    Updated: 2023/02/04 15:27:40 by rteles           ###   ########.fr        #
+#    Updated: 2023/02/04 15:58:04 by rteles           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= Interface
 
-SRCS			= ./main.cpp ./AMateria.cpp ./ICharacter.cpp ./IMateriaSource.cpp ./Character.cpp ./MateriaSource.cpp ./NewMateria.cpp ./Ice ./Cure
+SRCS			= 	./main.cpp \
+					./AMateria.cpp \
+					./Ice  \
+					./Cure \
+					./Character.cpp  \
+					./MateriaSource.cpp  \
+					./NewMateria.cpp
 
 SRCS_OBJS		= $(SRCS:.cpp=.o)
 

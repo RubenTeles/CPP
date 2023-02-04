@@ -12,6 +12,12 @@
 
 #include "AMateria.hpp"
 
+AMateria::AMateria(void)
+{
+    this->_type = "";
+    std::cout << "AMateria Default Constructor!" << std::endl;
+}
+
 AMateria::AMateria(std::string const & type)
 {
     this->_type = type;

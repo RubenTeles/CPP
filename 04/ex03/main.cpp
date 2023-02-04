@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 23:46:08 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/04 15:25:43 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/04 15:58:31 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-  /*  IMateriaSource* src = new MateriaSource();
+    IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
     
@@ -33,6 +33,6 @@ int main()
     delete bob;
     delete me;
     delete src;
-    */
+
     return 0;
 }

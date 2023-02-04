@@ -13,7 +13,9 @@
 #ifndef ICHARACTER_H
 # define ICHARACTER_H
 
-#include "ExTree.h"
+#include <iostream>
+
+class AMateria;
 
 class ICharacter
 {

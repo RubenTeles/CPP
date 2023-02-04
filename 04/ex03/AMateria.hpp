@@ -13,7 +13,8 @@
 #ifndef AMATERIA_H
 # define AMATERIA_H
 
-#include "ExTree.h"
+#include <iostream>
+#include "ICharacter.hpp"
 
 class AMateria
 {
@@ -21,8 +22,11 @@ class AMateria
         std::string _type;
 
     public:
+        AMateria(void);
         AMateria(std::string const & type);
-        ~AMateria(void);
+        AMateria( AMateria const & src);
+        
+        virtual ~AMateria(void);
 
         AMateria & operator=(AMateria const & rhs);
         

@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 00:59:36 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/04 01:00:24 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/04 15:59:40 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ Ice::Ice( Ice const & src): AMateria(src)
     *this = src;
 }
 
-Ice::~Ice() {
+Ice::~Ice()
+{
     std::cout << "Ice Destructor!" << std::endl;
 }
 

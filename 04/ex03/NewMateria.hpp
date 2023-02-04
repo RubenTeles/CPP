@@ -23,6 +23,8 @@ class NewMateria : virtual public AMateria
         NewMateria( NewMateria const & src);
         virtual ~NewMateria(void);
 
+        NewMateria & operator=(NewMateria const & rhs);
+
         virtual AMateria* clone() const;
         virtual void use(ICharacter& target);
 };
