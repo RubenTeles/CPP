@@ -24,7 +24,7 @@ Character::Character(void)
 }
 
 Character::Character(std::string name) : _name(name)
-{ 
+{
     for (int i = 0; i < 4; i++)
         this->_invetory[i] = NULL;
     
@@ -36,7 +36,11 @@ Character::Character( Character const & src)
     *this = src;
 }
 
-Character::~Character() {
+Character::~Character()
+{
+    for (int i = 0; i < Character::_maxInventory; i++)
+        delete this->_invetory[i];
+        
     std::cout << "Character Destructor!" << std::endl;
 }
 
@@ -45,9 +49,8 @@ Character & Character::operator=(Character const & rhs)
     if (this != &rhs)
     {
         this->_name = rhs.getName();
-        //TODO
-        /*for (int i = 0; i < 4; i++)
-            this->_invetory[i] = ;*/
+        for (int i = 0; i < 4; i++)
+            this->_invetory[i] = rhs.getInventory(i);
     }
 
     return *this;
@@ -78,7 +81,7 @@ void    Character::unequip(int idx)
     //TODO
     //Need delete
 
-    if (idx >= 0 && idx <= 3)
+    if (_maxInventory > idx)
     {
         std::cout << "The Materia " << this->_invetory[idx]->getType() << " is unequip in the Inventory!" << std::endl; 
 
@@ -95,9 +98,13 @@ void    Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-    if (idx >= 0 && idx <= 3 && this->_invetory[idx] != NULL)
-    {
-        /*The use(int, ICharacter&) member function will have to use the Materia at the
-        slot[idx], and pass the target parameter to the AMateria::use function.*/
-    }
+    if (_maxInventory > idx)
+        this->_invetory[idx]->use(target);
+}
+
+AMateria*    Character::getInventory(int idx) const
+{
+    if (_maxInventory > idx)
+        return this->_invetory[idx];
+    return NULL;
 }

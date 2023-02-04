@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.cpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,33 +10,77 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
+#include "MateriaSource.hpp"
 
-Character::Character(void): WrongAnimal("Character")
+int MateriaSource::_learnCapacity = 0;
+
+MateriaSource::MateriaSource(void)
 {
-    std::cout << "Character Constructor!" << std::endl;
+    for (int i = 0; i < 4; i++)
+        this->_learnMateria[i] = NULL;
+    
+    std::cout << "MateriaSource Constructor!" << std::endl;
 }
 
-Character::Character( Character const & src): WrongAnimal(src)
+MateriaSource::MateriaSource( MateriaSource const & src)
 {
     *this = src;
 }
 
-Character::~Character() {
-    std::cout << "Character Destructor!" << std::endl;
+MateriaSource::~MateriaSource() {
+    std::cout << "MateriaSource Destructor!" << std::endl;
 }
 
-Character & Character::operator=(Character const & rhs)
+MateriaSource & MateriaSource::operator=(MateriaSource const & rhs)
 {
     if (this != &rhs)
     {
-        this->_type = rhs._type;
+        for (int i = 0; i < 4; i++)
+            this->_learnMateria[i] = rhs._learnMateria[i];
     }
 
     return *this;
 }
 
-void Character::makeSound(void) const
+void MateriaSource::learnMateria(AMateria* m)
 {
-    std::cout << "Piu Piu!" << std::endl;
+    if (MateriaSource::_learnCapacity < 4)
+    {
+        this->_learnMateria[_learnCapacity] = m;
+
+        std::cout << "The Materia " << m->getType() << " is learn!" << std::endl; 
+  
+        MateriaSource::_learnCapacity += 1;
+
+        return ;
+    }
+    
+    std::cout << "He can't learn more!" << std::endl;
+}
+
+void MateriaSource::learnNewMateria(std::string type)
+{
+    if (MateriaSource::_learnCapacity < 4)
+    {
+        this->_learnMateria[_learnCapacity] = new NewMateria(type);
+
+        std::cout << "The Materia " << this->_learnMateria[_learnCapacity]->getType() << " is learn!" << std::endl; 
+
+        MateriaSource::_learnCapacity += 1;        
+
+        return ;
+    }
+    
+    std::cout << "He can't learn more!" << std::endl;
+}
+
+
+AMateria* MateriaSource::createMateria(std::string const & type)
+{
+    for (int i = 0; i < MateriaSource::_learnCapacity; i++)
+    {
+        if (type == this->_learnMateria[i]->getType())
+            return this->_learnMateria[i];
+    }
+    return (0);
 }

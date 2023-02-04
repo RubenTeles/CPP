@@ -13,17 +13,24 @@
 #ifndef MateriaSource_H
 # define MateriaSource_H
 
-#include "AMateria.hpp"
-#include "IMateriaSource.hpp"
+#include "ExTree.h"
 
 class MateriaSource : public IMateriaSource
 {
-    private:
-        std::string _type;
+    protected:
+        AMateria*   _learnMateria[4];
+        static int  _learnCapacity;
         
     public:
-        virtual void learnMateria(AMateria*);
+        MateriaSource(void);
+        MateriaSource( MateriaSource const & src);
+        virtual ~MateriaSource(void);
+
+        virtual void learnMateria(AMateria* m);
         virtual AMateria* createMateria(std::string const & type);
+
+
+        void learnNewMateria(std::string type);
 };
 
 #endif

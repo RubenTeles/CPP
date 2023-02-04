@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                       :+:      :+:    :+:   */
+/*   ExTree.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 22:18:55 by rteles            #+#    #+#             */
-/*   Updated: 2023/01/31 16:31:25 by rteles           ###   ########.fr       */
+/*   Created: 2023/02/04 15:16:17 by rteles            #+#    #+#             */
+/*   Updated: 2023/02/04 15:27:05 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_H
-# define CURE_H
+#ifndef EXTREE_H
+# define EXTREE_H
 
-#include "ExTree.h"
-
-class Cure : virtual public AMateria
-{
-    public:
-        Cure(void);
-        Cure( Cure const & src);
-        virtual ~Cure(void);
-
-        virtual AMateria* clone() const;
-        virtual void use(ICharacter& target);
-};
+#include <iostream>
+#include "IMateriaSource.hpp"
+#include "ICharacter.hpp"
+#include "AMateria.hpp"
+#include "Character.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include "MateriaSource.hpp"
+#include "NewMateria.hpp"
 
 #endif

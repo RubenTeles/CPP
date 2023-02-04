@@ -13,7 +13,7 @@
 #ifndef ICHARACTER_H
 # define ICHARACTER_H
 
-#include "AMateria.hpp"
+#include "ExTree.h"
 
 class ICharacter
 {

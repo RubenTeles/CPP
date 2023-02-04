@@ -6,15 +6,14 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 00:22:15 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/04 01:22:20 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/04 15:25:05 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_H
 # define CHARACTER_H
 
-#include "AMateria.hpp"
-#include "ICharacter.hpp"
+#include "ExTree.h"
 
 class Character : public ICharacter
 {
@@ -33,6 +32,8 @@ class Character : public ICharacter
         virtual void equip(AMateria* m);
         virtual void unequip(int idx);
         virtual void use(int idx, ICharacter& target);
+
+        AMateria*    getInventory(int idx) const;
 };
 
 #endif
