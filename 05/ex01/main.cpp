@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:26:01 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/21 18:38:14 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/21 21:25:34 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void    testGrade(Bureaucrat *bure, Form *form)
             std::cout << *bure << std::endl;
             std::cout << *form << std::endl << std::endl;
         
-            bure->signForm(form);
             form->beSigned(bure);
 
             std::cout << std::endl << std::endl;
@@ -47,15 +46,15 @@ int main()
 {
     Bureaucrat  camila("Camila", 1);
     Bureaucrat  albert("Albert", 150);
-    Form        homework("homework", 100, 100);
+    Form        homework("homework", 150, 150);
     Form        exam("exam", 10, 10);
 
     std::cout << std::endl << "---Test Assined---" << std::endl << std::endl;
 
-    testGrade(&camila, &homework);
-    testGrade(&camila, &exam);
     testGrade(&albert, &homework);
     testGrade(&albert, &exam);
+    testGrade(&camila, &homework);
+    testGrade(&camila, &exam);
     
     std::cout << std::endl << "---Test Copy---" << std::endl << std::endl;
     

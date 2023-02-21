@@ -81,9 +81,17 @@ int Form::getGradeExecute(void) const
 void Form::beSigned(Bureaucrat *bur)
 {
     if (bur->getGrade() > this->_gradeRequired)
+    {
+        bur->signForm(this->getName(), false, "the grade is too low!");
         throw GradeTooLowException();
-
-    this->_signed = 1;
+    }
+    else if (this->_signed)
+        bur->signForm(this->getName(), false, "is already signed!");
+    else
+    {
+        bur->signForm(this->getName(), true, "");
+        this->_signed = 1;
+    }
 }
 
 const char* Form::GradeTooHighException::what() const throw()
