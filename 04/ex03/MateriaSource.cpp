@@ -27,7 +27,11 @@ MateriaSource::MateriaSource( MateriaSource const & src)
     *this = src;
 }
 
-MateriaSource::~MateriaSource() {
+MateriaSource::~MateriaSource()
+{
+    for (int i = 0; i < MateriaSource::_learnCapacity; i++)
+        delete this->_learnMateria[i];
+
     std::cout << "MateriaSource Destructor!" << std::endl;
 }
 
@@ -56,31 +60,15 @@ void MateriaSource::learnMateria(AMateria* m)
     }
     
     std::cout << "He can't learn more!" << std::endl;
+    delete m;
 }
-
-void MateriaSource::learnNewMateria(std::string type)
-{
-    if (MateriaSource::_learnCapacity < 4)
-    {
-        this->_learnMateria[_learnCapacity] = new NewMateria(type);
-
-        std::cout << "The Materia " << this->_learnMateria[_learnCapacity]->getType() << " is learn!" << std::endl; 
-
-        MateriaSource::_learnCapacity += 1;        
-
-        return ;
-    }
-    
-    std::cout << "He can't learn more!" << std::endl;
-}
-
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
     for (int i = 0; i < MateriaSource::_learnCapacity; i++)
     {
         if (type == this->_learnMateria[i]->getType())
-            return this->_learnMateria[i];
+            return this->_learnMateria[i]->clone();
     }
     return (0);
 }

@@ -22,9 +22,6 @@ class AAnimal
         std::string _type;
     
     public:
-        AAnimal(void);
-        AAnimal(std::string _type);
-        AAnimal( AAnimal const & src);
         virtual ~AAnimal(void);
 
         AAnimal & operator=(AAnimal const & rhs);

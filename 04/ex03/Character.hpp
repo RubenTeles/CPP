@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 00:22:15 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/04 15:56:45 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/21 12:57:45 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Character : public ICharacter
     private:
         std::string _name;
         AMateria*   _invetory[4];
+        AMateria*   _garbage;
         static int  _maxInventory;
         Character(void);
         
@@ -34,6 +35,8 @@ class Character : public ICharacter
         virtual void equip(AMateria* m);
         virtual void unequip(int idx);
         virtual void use(int idx, ICharacter& target);
+
+        void    clearGarbage(void);
 
         AMateria*    getInventory(int idx) const;
 };

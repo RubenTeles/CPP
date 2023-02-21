@@ -6,7 +6,7 @@
 #    By: rteles <rteles@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 23:25:53 by rteles            #+#    #+#              #
-#    Updated: 2023/02/03 23:34:08 by rteles           ###   ########.fr        #
+#    Updated: 2023/02/21 11:12:52 by rteles           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS			= ./main.cpp ./Animal.cpp ./Dog.cpp ./Cat.cpp ./WrongAnimal.cpp ./WrongCa
 SRCS_OBJS		= $(SRCS:.cpp=.o)
 
 CXX				= c++
-CXXFLAGS			= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
+CXXFLAGS		= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 RM				= rm -f
 
 %.o: %.cpp

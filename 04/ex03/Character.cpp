@@ -19,6 +19,7 @@ Character::Character(void)
     this->_name = "";
     for (int i = 0; i < 4; i++)
         this->_invetory[i] = NULL;
+    this->_garbage = NULL;
 
     std::cout << "Character Default Constructor!" << std::endl;
 }
@@ -27,6 +28,7 @@ Character::Character(std::string name) : _name(name)
 {
     for (int i = 0; i < 4; i++)
         this->_invetory[i] = NULL;
+    this->_garbage = NULL;
     
     std::cout << "Character Constructor!" << std::endl;
 }
@@ -40,7 +42,8 @@ Character::~Character()
 {
     for (int i = 0; i < Character::_maxInventory; i++)
         delete this->_invetory[i];
-        
+    this->clearGarbage();
+
     std::cout << "Character Destructor!" << std::endl;
 }
 
@@ -65,7 +68,7 @@ void    Character::equip(AMateria* m)
 {
     if (Character::_maxInventory < 4)
     {
-        this->_invetory[_maxInventory] = m;
+        this->_invetory[Character::_maxInventory] = m;
         Character::_maxInventory += 1;
 
         std::cout << "The Materia " << m->getType() << " is equip in Inventory!" << std::endl; 
@@ -74,16 +77,19 @@ void    Character::equip(AMateria* m)
     }
     
     std::cout << "The Inventory is Full!" << std::endl;
+    delete m;
 }
 
 void    Character::unequip(int idx)
 {
-    //TODO
-    //Need delete
-
-    if (_maxInventory > idx)
+    if (Character::_maxInventory > idx && idx >= 0)
     {
         std::cout << "The Materia " << this->_invetory[idx]->getType() << " is unequip in the Inventory!" << std::endl; 
+
+        if (this->_garbage != NULL)
+            this->clearGarbage();
+
+        this->_garbage = this->_invetory[idx];
 
         this->_invetory[idx] = NULL;
 
@@ -98,8 +104,11 @@ void    Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-    if (_maxInventory > idx)
+    if (_maxInventory > idx && idx >= 0)
         this->_invetory[idx]->use(target);
+    
+    if (idx < 0 || idx >= _maxInventory)
+        std::cout << "This slot is empty or don't exist!" << std::endl; 
 }
 
 AMateria*    Character::getInventory(int idx) const
@@ -107,4 +116,9 @@ AMateria*    Character::getInventory(int idx) const
     if (_maxInventory > idx)
         return this->_invetory[idx];
     return NULL;
+}
+
+void    Character::clearGarbage(void)
+{
+    delete this->_garbage;
 }

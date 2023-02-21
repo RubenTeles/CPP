@@ -48,5 +48,5 @@ AMateria* NewMateria::clone() const
 
 void NewMateria::use(ICharacter& target)
 {
-    std::cout << "* shoots an " << this->getType() << " at " << target.getName() << std::endl;
+    std::cout << "* use a " << this->getType() << " at " << target.getName() << std::endl;
 }

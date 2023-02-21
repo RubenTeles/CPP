@@ -21,7 +21,7 @@ class NewMateria : virtual public AMateria
         NewMateria(void);
         NewMateria(std::string type);
         NewMateria( NewMateria const & src);
-        virtual ~NewMateria(void);
+        ~NewMateria(void);
 
         NewMateria & operator=(NewMateria const & rhs);
 

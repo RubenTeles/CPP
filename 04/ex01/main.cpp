@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:26:01 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/03 23:35:32 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/21 11:20:05 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void    testLeak(void)
     delete j;//should not create a leak
     delete i;
 }
-
 
 void testCopy(void)
 {

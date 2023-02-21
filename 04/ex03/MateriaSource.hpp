@@ -30,9 +30,6 @@ class MateriaSource : public IMateriaSource
 
         virtual void learnMateria(AMateria* m);
         virtual AMateria* createMateria(std::string const & type);
-
-
-        void learnNewMateria(std::string type);
 };
 
 #endif
