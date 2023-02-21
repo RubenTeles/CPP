@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:41:18 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/21 20:12:12 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/21 18:16:17 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void Bureaucrat::signForm(Form *form)
     }
     else
         std::cout << this->_name << " couldn't sign " << form->getName() << " because the Bureaucrat Grade is too Lown!" << std::endl;
+    
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()

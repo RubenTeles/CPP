@@ -6,14 +6,60 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:26:01 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/21 15:42:15 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/21 18:38:14 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
+
+void    testGrade(Bureaucrat *bure, Form *form)
+{
+    try {
+            std::cout << *bure << std::endl;
+            std::cout << *form << std::endl << std::endl;
+        
+            bure->signForm(form);
+            form->beSigned(bure);
+
+            std::cout << std::endl << std::endl;
+        
+    } catch (const Form::GradeTooHighException& e) {
+        
+        std::cout << "Erro: " << e.what() << std::endl << std::endl;
+    
+    } catch (const Form::GradeTooLowException& e) {
+    
+        std::cout << "Erro: " << e.what() << std::endl << std::endl;
+    }
+}
+
+void    testCopy(Form *form1, Form *form2)
+{
+    std::cout << *form1 << " for " << *form2 << std::endl;
+    
+    form1 = form2;
+
+    std::cout << std::endl << "Result: " << *form1 << std::endl << std::endl;
+}
 
 int main()
 {
-   
+    Bureaucrat  camila("Camila", 1);
+    Bureaucrat  albert("Albert", 150);
+    Form        homework("homework", 100, 100);
+    Form        exam("exam", 10, 10);
 
+    std::cout << std::endl << "---Test Assined---" << std::endl << std::endl;
+
+    testGrade(&camila, &homework);
+    testGrade(&camila, &exam);
+    testGrade(&albert, &homework);
+    testGrade(&albert, &exam);
+    
+    std::cout << std::endl << "---Test Copy---" << std::endl << std::endl;
+    
+    testCopy(&homework, &exam);
+    
     return 0;
 }

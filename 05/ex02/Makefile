@@ -6,13 +6,13 @@
 #    By: rteles <rteles@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 23:25:53 by rteles            #+#    #+#              #
-#    Updated: 2023/02/21 15:42:07 by rteles           ###   ########.fr        #
+#    Updated: 2023/02/21 17:43:14 by rteles           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=
+NAME			= Form
 
-SRCS			= ./main.cpp
+SRCS			= ./main.cpp ./Bureaucrat.cpp ./Form.cpp
 
 SRCS_OBJS		= $(SRCS:.cpp=.o)
 
