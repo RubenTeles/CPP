@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:41:18 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/21 18:16:17 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/21 23:45:13 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,16 +73,37 @@ void Bureaucrat::decrementGrade(void)
     this->_grade += 1;
 }
 
-void Bureaucrat::signForm(Form *form)
+void Bureaucrat::signForm(std::string form, bool is_assined, std::string reason)
 {
-    if (this->_grade <= form->getGradeRequired())
+    std::cout << this->_name;
+
+    if (is_assined)
     {
-        form->beSigned(this);
-        std::cout << this->_name << " signed " << form->getName();
+        std::cout << " signed " << form << "!" << std::endl;
+        return ;
     }
+    std::cout << " couldn't sign " << form << " because " << reason << std::endl;
+}
+
+void Bureaucrat::executeForm(AForm const & form) const
+{
+    std::cout << this->_name;
+
+    if (form.isSigned() && (form.getGradeExecute() > this->_grade))
+        std::cout << " executed " << form << std::endl;
     else
-        std::cout << this->_name << " couldn't sign " << form->getName() << " because the Bureaucrat Grade is too Lown!" << std::endl;
-    
+    {
+        std::cout << " couldn't executed " << form << " because ";
+        if (form.getGradeExecute() < this->_grade)
+        {
+            std::cout << "the form grade is too High!" << std::endl;
+            throw AForm::GradeTooLowException();
+        }
+        else {
+            std::cout << "isn't signed!" << std::endl;
+            throw AForm::GradeIsNotSignedException();
+        }
+    }
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
@@ -92,7 +113,7 @@ const char* Bureaucrat::GradeTooHighException::what() const throw()
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-    return ("The Grade is too Lown. (More than 150).");
+    return ("The Grade is too Low. (More than 150).");
 }
 
 
