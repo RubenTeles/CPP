@@ -19,7 +19,7 @@ Character::Character(void)
     this->_name = "";
     for (int i = 0; i < 4; i++)
         this->_invetory[i] = NULL;
-    this->_garbage = NULL;
+    this->garbage = NULL;
 
     std::cout << "Character Default Constructor!" << std::endl;
 }
@@ -28,7 +28,7 @@ Character::Character(std::string name) : _name(name)
 {
     for (int i = 0; i < 4; i++)
         this->_invetory[i] = NULL;
-    this->_garbage = NULL;
+    this->garbage = NULL;
     
     std::cout << "Character Constructor!" << std::endl;
 }
@@ -86,10 +86,7 @@ void    Character::unequip(int idx)
     {
         std::cout << "The Materia " << this->_invetory[idx]->getType() << " is unequip in the Inventory!" << std::endl; 
 
-        if (this->_garbage != NULL)
-            this->clearGarbage();
-
-        this->_garbage = this->_invetory[idx];
+        this->createGarbage(this->_invetory[idx]);
 
         this->_invetory[idx] = NULL;
 
@@ -120,5 +117,37 @@ AMateria*    Character::getInventory(int idx) const
 
 void    Character::clearGarbage(void)
 {
-    delete this->_garbage;
+    Garbage* current = this->garbage;
+    Garbage* temp = NULL;
+    
+    while (current)
+    {
+        temp = current;
+        current = current->next;
+
+        delete temp->current;
+        delete temp;
+    }
+    std::cout << std::endl;
 }
+
+void    Character::createGarbage(AMateria* m)
+{
+    Garbage* new_garbage = new Garbage();
+
+    new_garbage->current = m;
+    new_garbage->next = NULL;
+
+    if (!this->garbage)
+        this->garbage = new_garbage;
+    else 
+    {
+        Garbage* current = this->garbage;
+        
+        while (current->next)
+            current = current->next;
+        
+        current->next = new_garbage;
+    }
+}
+

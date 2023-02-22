@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 23:46:08 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/21 12:59:51 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/22 14:34:01 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int main()
     me->equip(tmp);
     tmp = src->createMateria("water");
     me->equip(tmp);
+    me->unequip(0);
     me->unequip(0);
     tmp = src->createMateria("ice");
     me->equip(tmp);
