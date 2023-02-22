@@ -128,7 +128,6 @@ void    Character::clearGarbage(void)
         delete temp->current;
         delete temp;
     }
-    std::cout << std::endl;
 }
 
 void    Character::createGarbage(AMateria* m)
