@@ -20,7 +20,6 @@ AAnimal::AAnimal(void)
 AAnimal::AAnimal(std::string type) : _type(type)
 {
     std::cout << "Animal Constructor!" << std::endl;
-
 }
 
 AAnimal::AAnimal( AAnimal const & src)
