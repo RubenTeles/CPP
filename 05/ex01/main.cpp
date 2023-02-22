@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:26:01 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/21 21:25:34 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/22 23:48:42 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,10 @@ void    testGrade(Bureaucrat *bure, Form *form)
 
             std::cout << std::endl << std::endl;
         
-    } catch (const Form::GradeTooHighException& e) {
+    } catch(const std::exception& e) {
         
         std::cout << "Erro: " << e.what() << std::endl << std::endl;
     
-    } catch (const Form::GradeTooLowException& e) {
-    
-        std::cout << "Erro: " << e.what() << std::endl << std::endl;
     }
 }
 

@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:26:01 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/21 17:39:58 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/22 23:49:01 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,10 @@ void    testInit(int grade)
         
         Bureaucrat  bur("Bur", grade);
         
-    } catch (const Bureaucrat::GradeTooHighException& e) {
+    }  catch(const std::exception& e) {
         
         std::cout << "Erro: " << e.what() << std::endl << std::endl;
     
-    } catch (const Bureaucrat::GradeTooLowException& e) {
-    
-        std::cout << "Erro: " << e.what() << std::endl << std::endl;
     }
 }
 
@@ -45,13 +42,10 @@ void    testGrade(Bureaucrat *bure, std::string test)
 
         std::cout << *bure << std::endl << std::endl;
         
-    } catch (const Bureaucrat::GradeTooHighException& e) {
+    }  catch(const std::exception& e) {
         
         std::cout << "Erro: " << e.what() << std::endl << std::endl;
     
-    } catch (const Bureaucrat::GradeTooLowException& e) {
-    
-        std::cout << "Erro: " << e.what() << std::endl << std::endl;
     }
 }
 
