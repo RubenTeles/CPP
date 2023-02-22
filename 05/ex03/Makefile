@@ -6,13 +6,19 @@
 #    By: rteles <rteles@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 23:25:53 by rteles            #+#    #+#              #
-#    Updated: 2023/02/21 15:42:07 by rteles           ###   ########.fr        #
+#    Updated: 2023/02/21 23:58:11 by rteles           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=
+NAME			= Intern
 
-SRCS			= ./main.cpp
+SRCS			= ./main.cpp \
+				  ./Bureaucrat.cpp \
+				  ./AForm.cpp \
+				  ./ShrubberyCreationForm.cpp \
+				  ./RobotomyRequestForm.cpp \
+				  ./PresidentialPardonForm.cpp \
+				  ./Intern.cpp
 
 SRCS_OBJS		= $(SRCS:.cpp=.o)
 
