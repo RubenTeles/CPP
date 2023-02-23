@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 22:17:42 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/22 22:46:10 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/23 00:13:01 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void    RobotomyRequestForm::execute(Bureaucrat const & executor) const
     executor.executeForm(*this);
 
     std::cout << "* Makes some drilling noises *" << std::endl;
+    std::srand(time(NULL));
     if (std::rand() % 2)
         std::cout << this->target << " has been robotomized!" << std::endl;
     else

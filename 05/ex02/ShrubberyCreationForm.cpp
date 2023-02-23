@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 22:17:42 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/22 23:46:42 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/23 00:22:33 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,11 @@ void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
     executor.executeForm(*this);
 
-    static const int map[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-    int random = map[(int)(1 + (std::rand() % 12))];
+    std::srand(time(NULL));
+    int xa = -1;
+    while (xa <= 0 || xa > 12)
+        xa = (1 + (std::rand() % 12));
+    int random = xa;
     int index = 0;
 	std::ifstream	readFile;
     std::ofstream	writeFile;
