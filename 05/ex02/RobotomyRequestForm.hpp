@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 13:12:32 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/22 22:40:56 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/23 11:41:33 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ class RobotomyRequestForm : virtual public AForm
         
         virtual void    execute(Bureaucrat const & executor) const;
 
+        class RobotTomyExecuteFailException : public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
 };
 
 #endif

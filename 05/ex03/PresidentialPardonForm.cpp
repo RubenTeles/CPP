@@ -18,6 +18,12 @@ PresidentialPardonForm::PresidentialPardonForm(void): AForm("PresidentialPardonF
     std::cout << "PresidentialPardonForm Constructor!" << std::endl;
 }
 
+PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("PresidentialPardonForm", 72, 45)
+{
+    this->target = target;
+    std::cout << "PresidentialPardonForm Constructor!" << std::endl;
+}
+
 PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src): AForm(src)
 {
     std::cout << "PresidentialPardonForm Clonned!" << std::endl;
@@ -35,4 +41,11 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonFor
         AForm::operator=(rhs);
 
     return *this;
+}
+
+void    PresidentialPardonForm::execute(Bureaucrat const & executor) const
+{
+    executor.executeForm(*this);
+
+    std::cout << this->target << ", pardoned by Zaphod Beeblebrox." << std::endl;
 }

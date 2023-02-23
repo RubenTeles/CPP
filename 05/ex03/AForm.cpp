@@ -86,7 +86,10 @@ void AForm::beSigned(Bureaucrat *bur)
         throw GradeTooLowException();
     }
     else if (this->_signed)
+    {
         bur->signForm(this->getName(), false, "is already signed!");
+        throw GradeIsSignedException();
+    }
     else
     {
         bur->signForm(this->getName(), true, "");
@@ -107,6 +110,11 @@ const char* AForm::GradeTooHighException::what() const throw()
 const char* AForm::GradeTooLowException::what() const throw()
 {
     return "The Grade is too Low. (More than 150).";
+}
+
+const char* AForm::GradeIsSignedException::what() const throw()
+{
+    return "The Grade is already Signed!";
 }
 
 const char* AForm::GradeIsNotSignedException::what() const throw()

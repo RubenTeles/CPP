@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 22:17:42 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/23 00:13:01 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/23 11:42:40 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ RobotomyRequestForm & RobotomyRequestForm::operator=(RobotomyRequestForm const &
     return *this;
 }
 
+const char* RobotomyRequestForm::RobotTomyExecuteFailException::what() const throw()
+{
+    return "The execute failed!";
+}
+
 void    RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
     executor.executeForm(*this);
@@ -52,5 +57,8 @@ void    RobotomyRequestForm::execute(Bureaucrat const & executor) const
     if (std::rand() % 2)
         std::cout << this->target << " has been robotomized!" << std::endl;
     else
+    {
         std::cout << this->target << ", robotomy failed!" << std::endl;
+        throw  RobotTomyExecuteFailException();
+    }
 }

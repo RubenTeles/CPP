@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 22:17:42 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/23 00:22:33 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/23 12:25:39 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,19 @@ const char* ShrubberyCreationForm::FailToOpenException::what() const throw()
 
 void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-    executor.executeForm(*this);
-
-    std::srand(time(NULL));
-    int xa = -1;
-    while (xa <= 0 || xa > 12)
-        xa = (1 + (std::rand() % 12));
-    int random = xa;
-    int index = 0;
 	std::ifstream	readFile;
     std::ofstream	writeFile;
 	std::string 	text;
 	std::string		line;
+    int             random = -1;
+    int             index = 0;
 
+    executor.executeForm(*this);
+    
+    std::srand(time(NULL));
+    while (random <= 0 || random > 12)
+        random = (1 + (std::rand() % 12));
+    
     readFile.open("tree.ascii");
 	
     if (readFile.fail())
@@ -91,4 +91,6 @@ void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 
 		writeFile.close();
 	}
+
+    std::cout << "Created: " << this->target << "_shrubbery.42" << std::endl;
 }
