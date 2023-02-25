@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:26:01 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/22 00:06:15 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/23 12:08:45 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,70 +15,38 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-#include "Inter.hpp"
-
-/*void    testGrade(Bureaucrat *bure, AForm *form)
-{
-    try {
-            std::cout << *bure << std::endl;
-            std::cout << *form << std::endl << std::endl;
-
-            form->beSigned(bure);
-            form->execute(*bure);
-
-            std::cout << std::endl << std::endl;
-        
-    } catch (const AForm::GradeTooHighException& e) {
-        
-        std::cout << "Erro: " << e.what() << std::endl << std::endl;
-    
-    } catch (const AForm::GradeTooLowException& e) {
-    
-        std::cout << "Erro: " << e.what() << std::endl << std::endl;
-    } catch (const AForm::GradeIsNotSignedException& e) {
-    
-        std::cout << "Erro: " << e.what() << std::endl << std::endl;
-    }
-}
-
-void    testCopy(AForm *form1, AForm *form2)
-{
-    std::cout << *form1 << " for " << *form2 << std::endl;
-    
-    form1 = form2;
-
-    std::cout << std::endl << "Result: " << *form1 << std::endl << std::endl;
-}*/
+#include "Intern.hpp"
 
 int main()
 {
     Intern someRandomIntern;
     AForm* rrf;
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 
-    /*
-    Bureaucrat  camila("Camila", 1);
-    Bureaucrat  albert("Albert", 150);
-    AForm       *shrubbery = new ShrubberyCreationForm();
-    AForm       *robot = new RobotomyRequestForm();
-    AForm       *presidential = new PresidentialPardonForm();
-
-    std::cout << std::endl << "---Test Assined---" << std::endl << std::endl;
-
-    testGrade(&albert, shrubbery);
-    testGrade(&albert, robot);
-    testGrade(&albert, presidential);
-    testGrade(&camila, shrubbery);
-    testGrade(&camila, robot);
-    testGrade(&camila, presidential);
+    try {
+            std::cout << std::endl << "--- Test ---" << std::endl << std::endl;
     
-    std::cout << std::endl << "---Test Copy---" << std::endl << std::endl;
+            rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+            std::cout << "1. " << rrf->getName() << std::endl;
+            delete rrf;
+            std::cout  << std::endl;
+            
+            rrf = someRandomIntern.makeForm("shrubbery creation", "Fruit");
+            std::cout << "2. " << rrf->getName() << std::endl;
+            delete rrf;
+            std::cout  << std::endl;
+        
+            rrf = someRandomIntern.makeForm("presidential pardon", "House");
+            std::cout << "3. " << rrf->getName() << std::endl;
+            delete rrf;
+            std::cout  << std::endl;
+        
+            rrf = someRandomIntern.makeForm("food request", "Ameijoa");
+        
+    }  catch(const std::exception& e) {
+        
+        std::cout << "Erro: " << e.what() << std::endl << std::endl;
     
-    testCopy(shrubbery, robot);
-
-    delete shrubbery;
-    delete robot;
-    delete presidential;*/
+    }
     
     return 0;
 }

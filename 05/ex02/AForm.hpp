@@ -14,6 +14,7 @@
 # define AFORM_HPP
 
 #include <iostream>
+#include <cstdlib>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -25,6 +26,8 @@ class AForm
         bool                _signed;
         int const           _gradeRequired;
         int const           _gradeExecute;
+
+    protected:
         AForm();
 
     public:
@@ -39,8 +42,8 @@ class AForm
         int         getGradeRequired(void) const;
         int         getGradeExecute(void) const;
     
-        void        beSigned(Bureaucrat *bur);
-        void        execute(Bureaucrat const & executor) const;
+        void         beSigned(Bureaucrat *bur);
+        virtual void execute(Bureaucrat const & executor) const;
         
         class GradeTooHighException : public std::exception
         {
@@ -49,6 +52,12 @@ class AForm
         };
 
         class GradeTooLowException : public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
+
+        class GradeIsSignedException : public std::exception
         {
             public:
                 virtual const char* what() const throw();

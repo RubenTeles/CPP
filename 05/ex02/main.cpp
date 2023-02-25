@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:26:01 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/21 23:47:00 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/23 12:17:38 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,10 @@ void    testGrade(Bureaucrat *bure, AForm *form)
 
             std::cout << std::endl << std::endl;
         
-    } catch (const AForm::GradeTooHighException& e) {
+    }  catch(const std::exception& e) {
         
         std::cout << "Erro: " << e.what() << std::endl << std::endl;
     
-    } catch (const AForm::GradeTooLowException& e) {
-    
-        std::cout << "Erro: " << e.what() << std::endl << std::endl;
-    } catch (const AForm::GradeIsNotSignedException& e) {
-    
-        std::cout << "Erro: " << e.what() << std::endl << std::endl;
     }
 }
 
@@ -53,18 +47,18 @@ int main()
 {
     Bureaucrat  camila("Camila", 1);
     Bureaucrat  albert("Albert", 150);
-    AForm       *shrubbery = new ShrubberyCreationForm();
-    AForm       *robot = new RobotomyRequestForm();
-    AForm       *presidential = new PresidentialPardonForm();
+    AForm       *shrubbery = new ShrubberyCreationForm("home");
+    AForm       *robot = new RobotomyRequestForm("robot");
+    AForm       *presidential = new PresidentialPardonForm("president");
 
     std::cout << std::endl << "---Test Assined---" << std::endl << std::endl;
 
-    testGrade(&albert, shrubbery);
-    testGrade(&albert, robot);
-    testGrade(&albert, presidential);
     testGrade(&camila, shrubbery);
     testGrade(&camila, robot);
     testGrade(&camila, presidential);
+    testGrade(&albert, shrubbery);
+    testGrade(&albert, robot);
+    testGrade(&albert, presidential);
     
     std::cout << std::endl << "---Test Copy---" << std::endl << std::endl;
     
