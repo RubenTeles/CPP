@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <limits>
+#include <stdlib.h>
 
 enum type_enum {
     TYPE_CHR,
@@ -26,12 +27,6 @@ enum type_enum {
 
 class ScalarConverter
 {
-    private:
-        char    c;
-        int     i;
-        double  dbl;
-        float   flt;
-
     public:
         ScalarConverter();
         ScalarConverter( ScalarConverter const & src);
@@ -42,7 +37,7 @@ class ScalarConverter
         operator int();
         operator char();
 
-        void convert(std::string str, int type);
+        static void convert(std::string str, int type);
         void convertToChar(std::string str);
         void convertToInt(std::string str);
         void convertToDouble(std::string str);

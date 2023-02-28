@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:26:01 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/26 02:12:07 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/28 13:55:27 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ int getType(std::string str)
     if (str[len - 1] == 'f' || str[len - 1] == 'F')
         has_f = true;
 
+    if (has_doot && has_f && static_cast<int>(found) == len - 2)
+        return TYPE_UNK;
+
     for (int i = 0; i < len; i++)
     {
         if (i == 0 && is_negative)
@@ -50,7 +53,7 @@ int getType(std::string str)
         if (has_doot && (int)found == i)
             i++;
             
-        if (has_f && has_doot && i == len - 1)
+        if (has_f && i == len - 1)
             return TYPE_FLT;
             
         if (!isdigit(str[i]))
