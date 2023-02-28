@@ -16,6 +16,7 @@
 #include <iostream>
 #include <limits>
 #include <stdlib.h>
+#include <iomanip>
 
 enum type_enum {
     TYPE_CHR,

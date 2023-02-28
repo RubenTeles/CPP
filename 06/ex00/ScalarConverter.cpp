@@ -84,7 +84,7 @@ int ScalarConverter::getType(void)
         if (has_doot && (int)found == i)
             i++;
             
-        if (has_f && i == len - 1)
+        if (has_f && has_doot && i == len - 1)
             return (TYPE_FLT);
             
         if (!isdigit(str[i]))
@@ -109,8 +109,8 @@ void    ScalarConverter::convert(void)
             std::cout << "char: Non displayable" << std::endl;
         i = static_cast<int>(_str[0]);
         std::cout << "int: " << i << std::endl;
-        std::cout << "float: " << std::fixed << static_cast<float>(i) << "f" << std::endl;
-        std::cout << "double: " << std::fixed << static_cast<double>(i) << std::endl;
+        std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
+        std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
     }
     else if (_type == TYPE_INT)
     {
@@ -127,8 +127,8 @@ void    ScalarConverter::convert(void)
         else
             std::cout << "char: " << "\'" << static_cast<char>(i) << "\'" << std::endl;
         std::cout << "int: " << i << std::endl;
-        std::cout << "float: " << std::fixed << static_cast<float>(i) << "f" << std::endl;
-        std::cout << "double: " << std::fixed << static_cast<double>(i) << std::endl;
+        std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
+        std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
     }
     else if (_type == TYPE_FLT)
     {
@@ -136,12 +136,12 @@ void    ScalarConverter::convert(void)
         {
             std::cout << "char: impossible" << std::endl;
             std::cout << "int: impossible" << std::endl;
-            std::cout << "float: " << std::fixed << _str << std::endl;
-            std::cout << "double: " << std::fixed << _str.substr(0, _str.length() - 1) << std::endl;
+            std::cout << "float: " << std::fixed << std::setprecision(1) << _str << std::endl;
+            std::cout << "double: " << std::fixed << std::setprecision(1) << _str.substr(0, _str.length() - 1) << std::endl;
             return ;
         }
 
-	    float	flt = strtod(_str.c_str(), NULL);
+	    float	flt = strtof(_str.c_str(), NULL);
 
         if (flt > 126 || flt < 32)
             std::cout << "char: Non displayable" << std::endl;
@@ -152,11 +152,11 @@ void    ScalarConverter::convert(void)
         else
             std::cout << "int: " << static_cast<int>(flt) << std::endl;
 
-        std::cout << "float: " << std::fixed << flt << "f" << std::endl;
+        std::cout << "float: " << std::fixed << std::setprecision(1) << flt << "f" << std::endl;
         if (flt > std::numeric_limits<double>::max() || flt < std::numeric_limits<double>::min())
             std::cout << "float: Impossible" << std::endl;
         else
-            std::cout << "double: " << std::fixed << static_cast<double>(flt) << std::endl;
+            std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(flt) << std::endl;
     }
     else if (_type == TYPE_DBL)
     {
@@ -164,8 +164,8 @@ void    ScalarConverter::convert(void)
         {
             std::cout << "char: impossible" << std::endl;
             std::cout << "int: impossible" << std::endl;
-            std::cout << "float: " << std::fixed << _str << "f" <<std::endl;
-            std::cout << "double: " << std::fixed  << _str << std::endl;
+            std::cout << "float: " << std::fixed << std::setprecision(1) << _str << "f" <<std::endl;
+            std::cout << "double: "  << _str << std::endl;
             return ;
         }
 
@@ -182,8 +182,8 @@ void    ScalarConverter::convert(void)
         if (d > std::numeric_limits<float>::max() || d < std::numeric_limits<float>::min())
             std::cout << "float: Impossible" << std::endl;
         else
-            std::cout << "float: " << std::fixed << d << "f" << std::endl;
-        std::cout << "double: " << std::fixed << d << std::endl;
+            std::cout << "float: " << std::fixed << std::setprecision(1) << d << "f" << std::endl;
+        std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
     }
     else
         std::cout << "This Type don't make any sense!" << std::endl;

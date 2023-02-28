@@ -6,13 +6,11 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:26:01 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/28 14:19:54 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/28 18:40:10 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "ScalarConverter.hpp"
-
 
 int main(int argc, char **argv)
 {
