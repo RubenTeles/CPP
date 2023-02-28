@@ -27,22 +27,21 @@ enum type_enum {
 
 class ScalarConverter
 {
-    public:
+    private:
         ScalarConverter();
+
+    public:
+        ScalarConverter( const std::string arg);
         ScalarConverter( ScalarConverter const & src);
         virtual ~ScalarConverter(void);
 
         ScalarConverter & operator=(ScalarConverter const & rhs);
-        operator float();
-        operator int();
-        operator char();
+        
+        static std::string  _str;
+        static int          _type;
 
-        static void convert(std::string str, int type);
-        void convertToChar(std::string str);
-        void convertToInt(std::string str);
-        void convertToDouble(std::string str);
-        void convertToFloat(std::string str);
+        static void convert(void);
+        static int getType(void);
 };
-
 
 #endif
