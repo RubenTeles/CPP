@@ -33,7 +33,7 @@ class ScalarConverter
     public:
         ScalarConverter( const std::string arg);
         ScalarConverter( ScalarConverter const & src);
-        virtual ~ScalarConverter(void);
+        ~ScalarConverter(void);
 
         ScalarConverter & operator=(ScalarConverter const & rhs);
         

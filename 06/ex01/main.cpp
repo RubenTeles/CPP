@@ -6,13 +6,12 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:26:01 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/28 16:16:44 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/28 16:22:07 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Serializer.hpp"
-
 
 int main(void)
 {
@@ -24,7 +23,7 @@ int main(void)
     data.age = 26;
 
     std::cout << "Data:" << std::endl << " Name: " << data.name << std::endl << 
-    " Age: " << data.age << std::endl << std::endl;
+    " Age: " << data.age << std::endl << " Address: " << &data << std::endl << std::endl;
 
     Serializer ser;
 
@@ -32,20 +31,12 @@ int main(void)
     data_ptr = ser.deserialize(ptr);
 
     std::cout << "Data Pointer:" << std::endl << " Name: " << data_ptr->name << std::endl << 
-    " Age: " << data_ptr->age << std::endl << std::endl;
+    " Age: " << data_ptr->age << std::endl << " Address: " << data_ptr << std::endl << std::endl;
+
+    if (data_ptr == &data)
+		std::cout << "---------- Correct ----------" << std::endl;
+	else
+		std::cout << "---------- Incorrect ----------" << std::endl;
 
     return 0;
 }
-/*
-    //Durante a compilaçao 
-    //static_cast< >();
-
-    //Durante a execuçao
-    //dynamic_cast< *>();
-
-    //float > void * > int * / int &
-    //reinterpret_cast< *>();
-
-    //converte const para uma nao constante 
-    //const_cast< *>()
-*/

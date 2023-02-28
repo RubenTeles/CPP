@@ -6,12 +6,11 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:41:18 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/28 16:12:39 by rteles           ###   ########.fr       */
+/*   Updated: 2023/02/28 16:34:31 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
-
 
 Serializer::Serializer(void) {
 }

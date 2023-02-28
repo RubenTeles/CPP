@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 23:27:24 by rteles            #+#    #+#             */
-/*   Updated: 2023/02/03 16:49:59 by rteles           ###   ########.fr       */
+/*   Created: 2023/02/02 23:26:01 by rteles            #+#    #+#             */
+/*   Updated: 2023/02/28 16:48:59 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
-
 #include <iostream>
-#include <stdint.h>
+#include "Base.hpp"
 
-struct Data
+int main(void)
 {
-    std::string     name;
-    unsigned int    age;
-};
+    Base        base;
+    Base        *child = base.generate();
+    
+   base.identify(child);
+   base.identify(*child);
 
-class Serializer
-{
-    public:
-        Serializer();
-        Serializer( Serializer const & src);
-        ~Serializer(void);
+   delete child;
 
-        Serializer & operator=(Serializer const & rhs);
-
-        static uintptr_t serialize(Data* ptr);
-        static Data* deserialize(uintptr_t raw);
-};
-
-#endif
+    return 0;
+}

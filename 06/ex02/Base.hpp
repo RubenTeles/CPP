@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                         :+:      :+:    :+:   */
+/*   Base.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,29 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
+#ifndef BASE_HPP
+# define BASE_HPP
 
 #include <iostream>
-#include <stdint.h>
+#include <cstdlib>
 
-struct Data
-{
-    std::string     name;
-    unsigned int    age;
+class Base { 
+    public: 
+        virtual ~Base(void);
+
+    Base * generate(void);
+    void identify(Base* p);
+    void identify(Base& p);
 };
 
-class Serializer
-{
-    public:
-        Serializer();
-        Serializer( Serializer const & src);
-        ~Serializer(void);
+class A : public Base { };
+class B : public Base { };
+class C : public Base { };
 
-        Serializer & operator=(Serializer const & rhs);
-
-        static uintptr_t serialize(Data* ptr);
-        static Data* deserialize(uintptr_t raw);
-};
 
 #endif

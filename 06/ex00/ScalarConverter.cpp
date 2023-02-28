@@ -122,7 +122,6 @@ void    ScalarConverter::convert(void)
             return ;
         }
         int i = static_cast<int>(aux);
-        std::cout << aux << std::endl;
         if (i > 126 || i < 32)
             std::cout << "char: Non displayable" << std::endl;
         else

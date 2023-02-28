@@ -6,14 +6,14 @@
 #    By: rteles <rteles@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 23:25:53 by rteles            #+#    #+#              #
-#    Updated: 2023/02/28 16:48:23 by rteles           ###   ########.fr        #
+#    Updated: 2023/02/28 16:49:49 by rteles           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= convert
+NAME			= Base
 
 SRCS			= ./main.cpp \
-				  ./ScalarConverter.cpp \
+				  ./Base.cpp \
 
 SRCS_OBJS		= $(SRCS:.cpp=.o)
 
