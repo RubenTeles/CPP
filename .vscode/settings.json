@@ -49,6 +49,9 @@
         "utility": "cpp",
         "iomanip": "cpp",
         "ranges": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "set": "cpp",
+        "list": "cpp",
+        "map": "cpp"
     }
 }

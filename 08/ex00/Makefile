@@ -6,19 +6,18 @@
 #    By: rteles <rteles@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 23:25:53 by rteles            #+#    #+#              #
-#    Updated: 2023/03/02 13:20:20 by rteles           ###   ########.fr        #
+#    Updated: 2023/03/02 20:28:36 by rteles           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= Base
+NAME			= easyfind
 
-SRCS			= ./main.cpp \
-				  ./Base.cpp \
+SRCS			= ./main.cpp
 
 SRCS_OBJS		= $(SRCS:.cpp=.o)
 
 CXX				= c++
-CXXFLAGS			= -Wall -Wextra -Werror -std=c++98 -Wshadow
+CXXFLAGS		= -Wall -Wextra -Werror -std=c++98 -Wshadow
 RM				= rm -f
 
 %.o: %.cpp
