@@ -12,7 +12,7 @@
 
 #include "Span.hpp"
 
-Span::Span(void) _n(0) {}
+Span::Span(void) : _n(0) {}
 
 Span::Span(unsigned int n) : _n(n) {}
 
@@ -26,13 +26,17 @@ Span::~Span() {}
 
 Span & Span::operator=(Span const & rhs)
 {
-    (void)rhs;
+    if (this != &rhs)
+    {
+        this->_n = rhs._n;
+        this->_myVector = rhs._myVector;
+    }
     return *this;
 }
 
 void Span::addNumber(unsigned int n)
 {
-    if (this->_myVector.size() > this->_n)
+    if (this->_myVector.size() >= this->_n)
         throw std::out_of_range("You can't more fill the Span!");
     
     this->_myVector.push_back(n);
@@ -43,7 +47,6 @@ int Span::shortestSpan(void)
     if (this->_myVector.size() < 2)
         throw std::range_error("No span can be found!");
 
-    
     std::sort(this->_myVector.begin(), this->_myVector.end());
     int diff = Span::longestSpan();
     int lastElement = *this->_myVector.begin();
@@ -79,7 +82,13 @@ int Span::longestSpan(void)
 
 void Span::fillNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator last)
 {
-    //TODO
-
+	long dist = std::distance(begin, last);
+	
+    if (dist <= 0)
+        throw std::out_of_range("The Range of iterators is 0 or Error!");
+	
+    if (this->_myVector.size() + dist > this->_n)
+		throw std::out_of_range("The Range of iterators exceeds Span!");
+    
     this->_myVector.insert(this->_myVector.begin()+this->_myVector.size(), begin, last);
 }
