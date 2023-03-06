@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 23:26:01 by rteles            #+#    #+#             */
-/*   Updated: 2023/03/06 00:21:41 by rteles           ###   ########.fr       */
+/*   Updated: 2023/03/06 12:45:18 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int main()
     mstack.push(5);
     mstack.push(17);
     
-    std::cout << mstack.top() << std::endl;
+    std::cout << "Top: " << mstack.top() << std::endl;
     
     mstack.pop();
     
-    std::cout << mstack.size() << std::endl;
+    std::cout << "Size: " << mstack.size() << std::endl;
     
     mstack.push(3);
     mstack.push(5);
@@ -37,6 +37,10 @@ int main()
     ++it;
     --it;
     
+    std::cout << "Begin: " << *it << std::endl;
+    std::cout << "End: " << *ite << std::endl;
+    
+    std::cout << "Stack:" << std::endl;
     while (it != ite)
     {
         std::cout << *it << std::endl;
