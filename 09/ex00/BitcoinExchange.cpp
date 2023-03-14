@@ -40,13 +40,11 @@ BitcoinExchange::~BitcoinExchange()
     
 }
 
-std::string searchDataBase(std::string date, float bitcoin)
+float searchDataBase(std::string date, float bitcoin)
 {
     std::ifstream	readFile;
 	std::string		line;
     std::size_t     found;
-    std::string     atualDate;
-    float           multipication;
 
     while (1)
     {
@@ -63,12 +61,8 @@ std::string searchDataBase(std::string date, float bitcoin)
             {
                 found = line.find(date);
                 if (found != std::string::npos)
-                {
-                    multipication = bitcoin * strtof(line.substr(found+date.length()+2, line.length()).c_str(), NULL);
-                    char buffer[32];
-                    sprintf(buffer, "%.2f", multipication);
-                    std::string s(buffer);
-                    return (s);
+                {   
+                    return (bitcoin * strtof(line.substr(found+date.length()+2, line.length()).c_str(), NULL));
                 }
             }
             readFile.close();
@@ -100,6 +94,8 @@ void    BitcoinExchange::show(void)
     int i = 1;
     std::stringstream ss;
     
+    std::cout << "Size: " << this->bitcoin.size() << std::endl;
+
     for (it = this->bitcoin.begin(); it != this->bitcoin.end(); ++it) 
     {
         if (it->first == 0)
@@ -119,10 +115,7 @@ void    BitcoinExchange::show(void)
             std::cout << std::endl;
         }
         else
-        {
-            //std::cout << data << " => " << value << std::endl << " = " << it->second["convert"] << std::endl;
-            std::cout << data << " => " << value << " = " << it->second["convert"] << std::endl;
-        }
+            std::cout << data << " => " << value << " = " << searchDataBase(data, strtof(value.c_str(), NULL)) << std::endl;
     }
 }
 
@@ -201,11 +194,10 @@ std::string validValue(std::string value)
 
 void    BitcoinExchange::divideInput(std::string input)
 {
-    std::map<std::string, std::string> dados_bitcoin;
     std::size_t found;
     std::string date;
     std::string value;
-
+	
 	found = input.find(" | ");
   	if (found != std::string::npos)
   	{
@@ -222,10 +214,6 @@ void    BitcoinExchange::divideInput(std::string input)
             if (date.find("bad input") != std::string::npos)
                 value = input;
         }
-        else
-        {
-            dados_bitcoin.insert(std::make_pair("convert", searchDataBase(date, strtof(value.c_str(), NULL))));
-        }
   	}
     else
     {
@@ -233,6 +221,7 @@ void    BitcoinExchange::divideInput(std::string input)
         value = input;
     }
 
+    std::map<std::string, std::string> dados_bitcoin;
     dados_bitcoin.insert(std::make_pair("data", date));
     dados_bitcoin.insert(std::make_pair("value", value));
 
