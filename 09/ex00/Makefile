@@ -18,7 +18,7 @@ SRCS			= 	./main.cpp \
 SRCS_OBJS		= $(SRCS:.cpp=.o)
 
 CXX				= c++
-CXXFLAGS		= #-Wall -Wextra -Werror -std=c++98 -Wshadow
+CXXFLAGS		= -Wall -Wextra -Werror -std=c++98 -Wshadow
 RM				= rm -f
 
 %.o: %.cpp

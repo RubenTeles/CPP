@@ -12,7 +12,7 @@
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange(std::string file)
+BitcoinExchange::BitcoinExchange(char *file)
 {
     std::ifstream	readFile;
 	std::string		line;
@@ -61,7 +61,7 @@ float searchDataBase(std::string date, float bitcoin)
             {
                 found = line.find(date);
                 if (found != std::string::npos)
-                {   
+                {
                     return (bitcoin * strtof(line.substr(found+date.length()+2, line.length()).c_str(), NULL));
                 }
             }
@@ -86,13 +86,6 @@ float searchDataBase(std::string date, float bitcoin)
 void    BitcoinExchange::show(void)
 {
     std::map<int, std::map<std::string, std::string> >::iterator it;
-    std::map<std::string, std::string> *dados_bitcoin;
-
-    std::size_t found;
-    std::string date;
-    std::string needle;
-    int i = 1;
-    std::stringstream ss;
     
     std::cout << "Size: " << this->bitcoin.size() << std::endl;
 
@@ -100,7 +93,6 @@ void    BitcoinExchange::show(void)
     {
         if (it->first == 0)
             ++it;
-        int key = it->first;
         
         std::map<std::string, std::string> map = it->second;
 
@@ -115,7 +107,10 @@ void    BitcoinExchange::show(void)
             std::cout << std::endl;
         }
         else
-            std::cout << data << " => " << value << " = " << searchDataBase(data, strtof(value.c_str(), NULL)) << std::endl;
+        {
+            std::cout << data << " => " << value;
+            std::cout << " = " << searchDataBase(data, strtof(value.c_str(), NULL)) << std::endl;
+        }
     }
 }
 
@@ -123,12 +118,12 @@ std::string validDate(std::string date)
 {
     std::size_t found;
     std::string dateAux;
+    std::string aux;
     int         i = 0;
     double      dateNumber;
     double      year;
     double      month;
     double      day;
-    std::string aux;
 
     dateAux = date;
     found = dateAux.find("-");
@@ -175,7 +170,7 @@ std::string validDate(std::string date)
 
 std::string validValue(std::string value)
 {
-    for (int i = 0; i < value.length() - 1; i++)
+    for (unsigned long i = 0; i < value.length() - 1; i++)
     {
         if (!(value[i] >= '0' && value[i] <= '9') &&
             !(value[i] <= 31 && value[i] >= 0) &&
@@ -227,14 +222,3 @@ void    BitcoinExchange::divideInput(std::string input)
 
     this->bitcoin.insert(std::make_pair(this->bitcoin.size(), dados_bitcoin));
 }
-
-/*
-data:
-    Mouth - 0<  >12
-    Day - 0<  >31
-
-value: 
-    1001 - Error: too large a number.
-    -1 - Error: not a positive number.
-    -2 - Error: bad input =>
-*/
