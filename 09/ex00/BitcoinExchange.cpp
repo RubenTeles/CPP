@@ -40,7 +40,7 @@ BitcoinExchange::~BitcoinExchange()
     
 }
 
-float searchDataBase(std::string date, float bitcoin)
+std::string searchDataBase(std::string date, float bitcoin)
 {
     std::ifstream	readFile;
 	std::string		line;
@@ -63,7 +63,13 @@ float searchDataBase(std::string date, float bitcoin)
             {
                 found = line.find(date);
                 if (found != std::string::npos)
-                    return (bitcoin * strtof(line.substr(found+1, line.length()).c_str(), NULL));
+                {
+                    multipication = bitcoin * strtof(line.substr(found+date.length()+2, line.length()).c_str(), NULL);
+                    char buffer[32];
+                    sprintf(buffer, "%.2f", multipication);
+                    std::string s(buffer);
+                    return (s);
+                }
             }
             readFile.close();
         }
@@ -72,42 +78,51 @@ float searchDataBase(std::string date, float bitcoin)
             throw std::invalid_argument("Error: can find ");
             return 0;
         }
+        
+        char i = date[date.length() - 1];
         date = date.substr(0, date.length()-1).c_str();
+        if (i > '0' && i <= '9')
+        {
+            i--;
+            date.push_back(i);
+        }
     }
 }
 
 void    BitcoinExchange::show(void)
 {
-    std::map<std::string, std::string>::iterator it;
+    std::map<int, std::map<std::string, std::string> >::iterator it;
+    std::map<std::string, std::string> *dados_bitcoin;
+
     std::size_t found;
     std::string date;
     std::string needle;
     int i = 1;
     std::stringstream ss;
     
-    std::cout << this->bitcoin.size() << std::endl;
-
     for (it = this->bitcoin.begin(); it != this->bitcoin.end(); ++it) 
     {
-        if (i == 1)
+        if (it->first == 0)
             ++it;
-       /* needle = "";
-        ss.str("");
-        ss << i;
-        needle = ss.str();
-	    found = it->first.find(needle);*/
-        /*std:: cout <<  " nedle:" << needle << std::endl;
-        std::cout << "found " << found <<" " << std::endl;*/
+        int key = it->first;
+        
+        std::map<std::string, std::string> map = it->second;
 
-		date = it->first.substr(2);
-        if (date.find("Error") != std::string::npos)
-            std::cout << it->first << std::endl;
-       /* else
+        std::string data = it->second["data"];
+        std::string value = it->second["value"];
+
+        if (value == "" || data == "Error: bad input")
         {
-            std::cout << it->first << " => " << it->second << std::endl;*/
-            //std::cout << searchDataBase(it->first, strtof(it->second.c_str(), NULL)) << std::endl;
-       // }
-        i++;
+            std::cout << data;
+            if (data == "Error: bad input")
+                std::cout << " => " << value;
+            std::cout << std::endl;
+        }
+        else
+        {
+            //std::cout << data << " => " << value << std::endl << " = " << it->second["convert"] << std::endl;
+            std::cout << data << " => " << value << " = " << it->second["convert"] << std::endl;
+        }
     }
 }
 
@@ -186,10 +201,11 @@ std::string validValue(std::string value)
 
 void    BitcoinExchange::divideInput(std::string input)
 {
+    std::map<std::string, std::string> dados_bitcoin;
     std::size_t found;
     std::string date;
     std::string value;
-	
+
 	found = input.find(" | ");
   	if (found != std::string::npos)
   	{
@@ -206,18 +222,21 @@ void    BitcoinExchange::divideInput(std::string input)
             if (date.find("bad input") != std::string::npos)
                 value = input;
         }
+        else
+        {
+            dados_bitcoin.insert(std::make_pair("convert", searchDataBase(date, strtof(value.c_str(), NULL))));
+        }
   	}
     else
     {
         date = "Error: bad input";
         value = input;
     }
-    int size = this->bitcoin.size();
-    std::stringstream ss;
-    ss << size;
-    std::string str = ss.str();
 
-    this->bitcoin.insert(std::pair<std::string, std::string>(str+" "+date, value));
+    dados_bitcoin.insert(std::make_pair("data", date));
+    dados_bitcoin.insert(std::make_pair("value", value));
+
+    this->bitcoin.insert(std::make_pair(this->bitcoin.size(), dados_bitcoin));
 }
 
 /*
