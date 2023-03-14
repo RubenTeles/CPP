@@ -21,7 +21,7 @@
 class BitcoinExchange
 {
     private:
-        std::map<std::string, float> bitcoin;
+        std::map<std::string, std::string> bitcoin;
         
     public:
         BitcoinExchange(std::string file);
