@@ -23,5 +23,7 @@ int main(int argc, char **argv)
 
     BitcoinExchange bit = BitcoinExchange(argv[1]);
 
+    std::cout << "show:" << std::endl;
+    bit.show();
     return 0;
 }

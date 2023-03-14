@@ -14,6 +14,7 @@
 # define BITCOINEXCHANGE_HPP
 
 #include <iostream>
+#include <sstream>
 #include <map>
 #include <fstream>
 
@@ -27,6 +28,7 @@ class BitcoinExchange
         ~BitcoinExchange();
 
         void    divideInput(std::string input);
+        void    show(void);
 };
 
 #endif
