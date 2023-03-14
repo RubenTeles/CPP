@@ -17,18 +17,22 @@
 #include <sstream>
 #include <map>
 #include <fstream>
-#include <stdlib.h>//Todo
+#include <cstdlib>
 
 class BitcoinExchange
 {
     private:
         std::map<int, std::map<std::string, std::string> > bitcoin;
-        
+        BitcoinExchange();
+        void    divideInput(std::string input);
+
     public:
         BitcoinExchange(char *file);
+        BitcoinExchange( BitcoinExchange const & src);
         ~BitcoinExchange();
 
-        void    divideInput(std::string input);
+        BitcoinExchange & operator=(BitcoinExchange const & rhs);
+
         void    show(void);
 };
 

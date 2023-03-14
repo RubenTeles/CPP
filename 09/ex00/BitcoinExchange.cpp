@@ -12,6 +12,8 @@
 
 #include "BitcoinExchange.hpp"
 
+BitcoinExchange::BitcoinExchange() {}
+
 BitcoinExchange::BitcoinExchange(char *file)
 {
     std::ifstream	readFile;
@@ -35,9 +37,31 @@ BitcoinExchange::BitcoinExchange(char *file)
 
 }
 
-BitcoinExchange::~BitcoinExchange()
+BitcoinExchange::~BitcoinExchange() {}
+
+BitcoinExchange::BitcoinExchange( BitcoinExchange const & src)
 {
+    *this = src;
+}
+
+BitcoinExchange & BitcoinExchange::operator=(BitcoinExchange const & rhs)
+{
+    if (this != &rhs)
+    {
+        this->bitcoin.clear();
+
+        for (std::map<int, std::map<std::string, std::string> >::const_iterator it = rhs.bitcoin.begin(); it != rhs.bitcoin.end(); ++it)
+        {
+            std::map<std::string, std::string> new_map;
+            for (std::map<std::string, std::string>::const_iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
+            {
+                new_map[it2->first] = it2->second;
+            }
+            this->bitcoin[it->first] = new_map;
+        }
+    }
     
+    return *this;
 }
 
 float searchDataBase(std::string date, float bitcoin)
@@ -62,7 +86,7 @@ float searchDataBase(std::string date, float bitcoin)
                 found = line.find(date);
                 if (found != std::string::npos)
                 {
-                    return (bitcoin * strtof(line.substr(found+date.length()+2, line.length()).c_str(), NULL));
+                    return (bitcoin * std::atof(line.substr(found+date.length()+2, line.length()).c_str()));
                 }
             }
             readFile.close();
@@ -108,8 +132,12 @@ void    BitcoinExchange::show(void)
         }
         else
         {
-            std::cout << data << " => " << value;
-            std::cout << " = " << searchDataBase(data, strtof(value.c_str(), NULL)) << std::endl;
+            std::cout << "option 1:" << std::endl;
+            std::cout << data << " => " << value << " = " << searchDataBase(data, std::atof(value.c_str())) << std::endl;
+
+            std::cout << "option 2:" << std::endl;
+            std::cout << data << " => " << value << std::endl <<
+            " = " << searchDataBase(data, std::atof(value.c_str())) << std::endl << std::endl;
         }
     }
 }
@@ -136,7 +164,7 @@ std::string validDate(std::string date)
         aux = date.substr(startFound, found);
         if ((i == 1 && aux.length() != 4) || ((i == 2 || i == 3) && aux.length() != 2))
             return ("Error: bad date!");
-        dateNumber = strtof(aux.c_str(), NULL);
+        dateNumber = std::atof(aux.c_str());
         if (i == 1)
         {
             year = dateNumber;
@@ -178,7 +206,7 @@ std::string validValue(std::string value)
             return "Error: bad input => ";
     }
 
-    float	numb = strtof(value.c_str(), NULL);
+    float	numb = std::atof(value.c_str());
 
     if (numb > 1000)
         return "Error: too large a number.";
