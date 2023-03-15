@@ -14,14 +14,16 @@
 
 int main(int argc, char **argv)
 {
-    if (argc != 2)
+    if (argc < 2)
     {
-		  std::cerr << "Error: could not open file." << std::endl;
+		  std::cerr << "Error: Need Arguments!" << std::endl;
 		  return (1);
     }
 
     try {
-        PmergeMe pm = PmergeMe(argv[1]);
+        PmergeMe pm = PmergeMe(argv);
+
+        pm.show(argv);
     }
     catch(const std::exception& e) {
         std::cerr << e.what() << '\n';
@@ -29,3 +31,7 @@ int main(int argc, char **argv)
     
     return 0;
 }
+/*
+3 5 9 7 4
+`shuf -i 1-100000 -n 3000 | tr "\n" " "`
+*/

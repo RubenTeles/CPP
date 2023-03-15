@@ -36,4 +36,6 @@ class BitcoinExchange
         void    show(void);
 };
 
+std::ostream &  operator<<( std::ostream & o, BitcoinExchange const & i );
+
 #endif
