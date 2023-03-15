@@ -1,38 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 23:26:01 by rteles            #+#    #+#             */
-/*   Updated: 2023/03/13 23:42:56 by rteles           ###   ########.fr       */
+/*   Created: 2023/03/13 19:57:22 by rteles            #+#    #+#             */
+/*   Updated: 2023/03/13 20:10:12 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#include "PmergeMe.hpp"
 
-int main(int argc, char **argv)
+PmergeMe::PmergeMe() {}
+
+
+PmergeMe::PmergeMe(char **numbers)
 {
 
-    if (argc != 2)
-    {
-		  std::cerr << "Error: could not open file." << std::endl;
-		  return (1);
-    }
+}
 
-    try {
-        RPN cal = RPN(argv[1]);
-        cal.result();
-    }
-    catch(const std::exception& e) {
-        std::cerr << e.what() << '\n';
+PmergeMe::~PmergeMe() {}
+
+PmergeMe::PmergeMe( PmergeMe const & src)
+{
+    *this = src;
+}
+
+PmergeMe & PmergeMe::operator=(PmergeMe const & rhs)
+{
+    if (this != &rhs)
+    {
+
     }
     
-    return 0;
+    return *this;
 }
-/*
-./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
-./RPN "7 7 * 7 -"
-./RPN "(1 + 1)"
-*/
+
+void PmergeMe::result(void)
+{
+    if (this->calculate.size() == 1)
+        std::cout << this->calculate.top() << std::endl; 
+}

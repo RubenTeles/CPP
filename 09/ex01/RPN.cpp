@@ -72,9 +72,7 @@ RPN::RPN( RPN const & src)
 RPN & RPN::operator=(RPN const & rhs)
 {
     if (this != &rhs)
-    {
-        //TODO
-    }
+        this->calculate = rhs.calculate;
     
     return *this;
 }

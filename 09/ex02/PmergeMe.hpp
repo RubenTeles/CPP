@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.hpp                                    :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,24 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RPN_HPP
-# define RPN_HPP
+#ifndef PmergeMe_HPP
+# define PmergeMe_HPP
 
 #include <iostream>
-#include <stack>
+#include <list>
+#include <vector>
 
-class RPN
+class PmergeMe
 {
     private:
-        std::stack<int> calculate;
-        RPN();
+        std::list<int> list;
+        std::vector<int> list;
+        PmergeMe();
 
     public:
-        RPN(char *numbers);
-        RPN( RPN const & src);
-        ~RPN();
+        PmergeMe(char *numbers);
+        PmergeMe( PmergeMe const & src);
+        ~PmergeMe();
 
-        RPN & operator=(RPN const & rhs);
+        PmergeMe & operator=(PmergeMe const & rhs);
 
         void    result(void);
 };

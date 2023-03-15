@@ -10,11 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#include "PmergeMe.hpp"
 
 int main(int argc, char **argv)
 {
-
     if (argc != 2)
     {
 		  std::cerr << "Error: could not open file." << std::endl;
@@ -22,8 +21,7 @@ int main(int argc, char **argv)
     }
 
     try {
-        RPN cal = RPN(argv[1]);
-        cal.result();
+        PmergeMe pm = PmergeMe(argv[1]);
     }
     catch(const std::exception& e) {
         std::cerr << e.what() << '\n';
@@ -31,8 +29,3 @@ int main(int argc, char **argv)
     
     return 0;
 }
-/*
-./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
-./RPN "7 7 * 7 -"
-./RPN "(1 + 1)"
-*/

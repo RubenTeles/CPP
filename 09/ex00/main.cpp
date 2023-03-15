@@ -15,15 +15,21 @@
 int main(int argc, char **argv)
 {
 
-    if (argc != 2)
-    {
+  if (argc != 2)
+  {
 		std::cerr << "Error: could not open file." << std::endl;
 		return (1);
-    }
+  }
 
-    BitcoinExchange bit = BitcoinExchange(argv[1]);
+  try {
+  	BitcoinExchange bit = BitcoinExchange(argv[1]);
 
-    std::cout << "show:" << std::endl;
-    bit.show();
-    return 0;
+  	std::cout << "show:" << std::endl;
+  	bit.show();
+  }
+  catch(const std::exception& e) {
+    std::cerr << e.what() << '\n';
+  }
+  
+  return 0;
 }
