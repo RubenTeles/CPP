@@ -87,8 +87,8 @@ float searchDataBase(std::string date, float bitcoin)
                 if (found != std::string::npos)
                 {
                     found = line.find(',');
-                    //std::cout << std::endl << "Procura por: " << date << std::endl << "Multiplica por: " << bitcoin << std::endl;
-                    //std::cout << std::endl << line << " deu: " << line.substr(found+1, line.length()).c_str() << std::endl;
+                    if (found == std::string::npos)
+                        throw std::invalid_argument("Erro: database is not okey!");
                     return (bitcoin * std::atof(line.substr(found+1, line.length()).c_str()));
                 }
             }
