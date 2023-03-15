@@ -175,12 +175,6 @@ std::string validDate(std::string date)
         if ((i == 1 && aux.length() != 4) || ((i == 2 || i == 3) && aux.length() != 2))
             return ("Error: bad date!");
         dateNumber = std::atof(aux.c_str());
-        if (i == 1)
-        {
-            year = dateNumber;
-            if (dateNumber < 2009 || dateNumber > 2022)
-               return ("Error: bad date!");
-        }
         if (i == 2)
         {
             month = dateNumber;
@@ -197,11 +191,6 @@ std::string validDate(std::string date)
         startFound += found + 1;
         found = dateAux.find("-");
     }
-    if (year == 2009 && month == 1 && day == 1)
-        return ("Error: bad date, bitcoin don't exist!");
-
-    if (year == 2022 && (month > 3 || (month == 3 && day > 29)))
-        return ("Error: bad date, you are in the future!");
 
     return date;
 }
