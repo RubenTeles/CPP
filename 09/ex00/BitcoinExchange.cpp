@@ -86,7 +86,10 @@ float searchDataBase(std::string date, float bitcoin)
                 found = line.find(date);
                 if (found != std::string::npos)
                 {
-                    return (bitcoin * std::atof(line.substr(found+date.length()+2, line.length()).c_str()));
+                    found = line.find(',');
+                    //std::cout << std::endl << "Procura por: " << date << std::endl << "Multiplica por: " << bitcoin << std::endl;
+                    //std::cout << std::endl << line << " deu: " << line.substr(found+1, line.length()).c_str() << std::endl;
+                    return (bitcoin * std::atof(line.substr(found+1, line.length()).c_str()));
                 }
             }
             readFile.close();
@@ -132,12 +135,19 @@ void    BitcoinExchange::show(void)
         }
         else
         {
-            std::cout << "option 1:" << std::endl;
-            std::cout << data << " => " << value << " = " << searchDataBase(data, std::atof(value.c_str())) << std::endl;
+            std::cout << data << " => ";
 
-            std::cout << "option 2:" << std::endl;
-            std::cout << data << " => " << value << std::endl <<
-            " = " << searchDataBase(data, std::atof(value.c_str())) << std::endl << std::endl;
+            for (size_t i = 0; i < value.length(); i++)
+            {
+                if (value[i] >= '0' && value[i] <= '9')
+                    std::cout << value[i];
+            }
+            float result = searchDataBase(data, std::atof(value.c_str()));
+            if (result >= 1000000)
+                std::cout << " = " << std::fixed << result << std::endl;
+            else
+                std::cout << " = " << result << std::endl;
+
         }
     }
 }

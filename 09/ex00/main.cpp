@@ -28,7 +28,7 @@ int main(int argc, char **argv)
   	bit.show();
   }
   catch(const std::exception& e) {
-    std::cerr << e.what() << '\n';
+    std::cerr << e.what() << std::endl;
   }
   
   return 0;
