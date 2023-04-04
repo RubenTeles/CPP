@@ -17,6 +17,7 @@ Each module contains one or more examples that demonstrate the concepts covered.
 - [Templates (Module 07)](#templates-module-07)
 - [STL (Module 08)](#stl-module-08)
 - [Containers (Module 09)](#containers-module-09)
+- [Binnary Tree (Extra)](#binnary-tree-extra)
 
 ## Abstraction and Encapsulation (Module 00)
 
@@ -86,5 +87,5 @@ Each module contains one or more examples that demonstrate the concepts covered.
 
 - Containers
 
-## Binary Tree (Extra)
-- Binary Tree
+## Binnary Tree (Extra)
+- Binnary Tree
