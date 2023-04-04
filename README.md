@@ -85,4 +85,6 @@ Each module contains one or more examples that demonstrate the concepts covered.
 ## Containers (Module 09)
 
 - Containers
+
+## Binary Tree (Extra)
 - Binary Tree
