@@ -1,6 +1,25 @@
-# CPP
+# CPP - C++ Programming Concepts
 
-Module 00:
+This repository contains my notes and code from my learning journey of C++.
+The code is organized into modules that cover different topics, from basic abstractions and encapsulation to advanced topics like type conversion and templates.
+
+Each module contains one or more examples that demonstrate the concepts covered. Additionally, the code is documented and commented to explain the reasoning behind each code snippet and help readers understand the implementation details.
+
+## Table of Contents
+
+- [Abstraction and Encapsulation (Module 00)](#abstraction-and-encapsulation-module-00)
+- [Memory Management (Module 01)](#memory-management-module-01)
+- [Polymorphism Ad Hoc (Module 02)](#polymorphism-ad-hoc-module-02)
+- [Inheritance (Module 03)](#inheritance-module-03)
+- [Polymorphism Subtyping (Module 04)](#polymorphism-subtyping-module-04)
+- [Exceptions and Nested Classes (Module 05)](#exceptions-and-nested-classes-module-05)
+- [Type Conversion (Module 06)](#type-conversion-module-06)
+- [Templates (Module 07)](#templates-module-07)
+- [STL (Module 08)](#stl-module-08)
+- [Containers (Module 09)](#containers-module-09)
+
+## Abstraction and Encapsulation (Module 00)
+
 - Namespaces
 - Stdio streams
 - Class and instance
@@ -15,28 +34,33 @@ Module 00:
 - Non member attributes and non member functions
 - Pointers to members
 
-Module 01:
+## Memory Management (Module 01)
+
 - New and delete
 - References
 - Filestream
 
-Module 02:
+## Polymorphism Ad Hoc (Module 02)
+
 - Ad-hoc polymorphism
 - Operator overload
-- Canonical form
 
-Module 03:
+## Inheritance (Module 03)
+
 - Inheritance C++
 
-Module 04:
+## Polymorphism Subtyping (Module 04)
+
 - Sub-typing polymorphism
 - Abstract classes and interfaces
 
-Module 05:
+## Exceptions and Nested Classes (Module 05)
+
 - Nested classes
 - Exceptions
 
-Module 06:
+## Type Conversion (Module 06)
+
 - From C - Type conversion
 - From C - Type reinterpretation
 - From C - Type qualifier reinterpretation
@@ -48,16 +72,17 @@ Module 06:
 - Cast operators
 - Explicit keyword
 
-Module 07:
+## Templates (Module 07)
+
 - Templates
 - Default type
 - Specialization
 
-Module 08:
+## STL (Module 08)
+
 - STL
 
-Module 09:
-- Containers
+## Containers (Module 09)
 
-Extra:
-- Binnary Tree
+- Containers
+- Binary Tree
